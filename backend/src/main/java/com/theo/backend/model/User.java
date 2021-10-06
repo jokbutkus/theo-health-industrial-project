@@ -1,4 +1,4 @@
-package com.theo.backend.model.user;
+package com.theo.backend.model;
 
 import javax.persistence.*;
 
