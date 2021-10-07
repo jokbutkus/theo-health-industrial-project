@@ -15,6 +15,9 @@ public class User {
     @JoinColumn
     private UserRole role;
 
+    @OneToMany(mappedBy = "user")
+    private Set<Recording> recordings;
+
     @OneToMany(mappedBy = "staff")
     private Set<AthleteStaff> staffLink;
 
