@@ -17,9 +17,5 @@ public class Recording {
     @ManyToOne
     @JoinColumn(name = "athleteID")
     private User user;
-
-    @Column(unique = true, nullable = false)
-    private LocalDateTime beginsAt;
-    @Column(unique = true, nullable = false)
-    private LocalDateTime endsAt;
+    
 }
