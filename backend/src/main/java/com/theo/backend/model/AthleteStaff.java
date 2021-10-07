@@ -10,7 +10,7 @@ public class AthleteStaff {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
 
-    @OneToOne
+    @ManyToOne
     private User staff;
 
     @OneToOne

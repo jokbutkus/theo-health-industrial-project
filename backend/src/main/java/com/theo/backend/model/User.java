@@ -1,6 +1,7 @@
 package com.theo.backend.model;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @Table(name = "user")
@@ -14,8 +15,8 @@ public class User {
     @JoinColumn
     private UserRole role;
 
-    @OneToOne(mappedBy = "staff")
-    private AthleteStaff staffLink;
+    @OneToMany(mappedBy = "staff")
+    private Set<AthleteStaff> staffLink;
 
     @OneToOne(mappedBy = "athlete")
     private AthleteStaff athleteLink;
