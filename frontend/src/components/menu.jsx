@@ -13,53 +13,41 @@ class  Menu extends Component {
     return (
       <div class="card">
       <div class="card-header">
-        <ul class="nav nav-tabs card-header-tabs">
-          <li class={"d-grid col-3"}>
+        <ul class="nav flex-column nav-tabs card-header-tabs">
+          <li class={"d-grid col-4"}>
             <a
-              href="#"
+              href="#" 
               class={
-                "text-center nav-link w-50 mx-auto" +
+                "text-center nav-link w-150" + 
                 (this.props.selection === 0 ? " active" : "")
-              }
+              } 
               onClick={() => this.changeSelected(0)}
-            >
-              0
+            > 
+              My Profile
             </a>
           </li>
-          <li class={"d-grid col-3"}>
+          <li class={"d-grid col-4"}>
             <a
               href="#"
               class={
-                "text-center nav-link w-50 mx-auto" +
+                "text-center nav-link w-150" +
                 (this.props.selection === 1 ? " active" : "")
               }
               onClick={() => this.changeSelected(1)}
             >
-              1
+              My Clients
             </a>
           </li>
-          <li class={"d-grid col-3"}>
+          <li class={"d-grid col-4"}>
             <a
               href="#"
               class={
-                "text-center nav-link w-50 mx-auto" +
+                "text-center nav-link w-150" +
                 (this.props.selection === 2 ? " active" : "")
               }
               onClick={() => this.changeSelected(2)}
             >
-              2
-            </a>
-          </li>
-          <li class={"d-grid col-3"}>
-            <a
-              href="#"
-              class={
-                "text-center nav-link w-50 mx-auto" +
-                (this.props.selection === 3 ? " active" : "")
-              }
-              onClick={() => this.changeSelected(3)}
-            >
-              3
+              Add Clients
             </a>
           </li>
         </ul>

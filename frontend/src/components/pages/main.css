@@ -1,0 +1,17 @@
+.sidebar {
+    float: left;
+    width: 30%;
+    height: 800px;
+    background-color: #078D9B;
+    text-align: center;
+  }
+
+.profilepic {
+    width: 100px;
+    padding-right: 20px;
+}
+
+.clientpic {
+    width: 150px;
+    padding-right: 20px;
+}
