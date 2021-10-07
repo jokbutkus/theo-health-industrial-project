@@ -13,6 +13,7 @@ class BusinessMenu extends Component {
   render() {
     return (
       <div>
+      <h1>{__filename}</h1>
       </div>
     );
   }

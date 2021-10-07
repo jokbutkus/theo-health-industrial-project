@@ -1,16 +1,12 @@
 import React, { Component } from "react";
 import "../index.css";
 import Login from "./pages/login";
-import LoginForm from "./pages/loginForm"
+import Register from "./pages/register"
+import FrontPage from "./pages/frontPage";
 import Dashboard from "./pages/dashboard";
 
 
-const appStates = {
-  //npm start
-  //Login: 1, //takes customer/business prop
-  //LoginSuccess: 2, //takes customer/business prop
-  Dashboard: 3,
-};
+
 
 const athlete1 = {
   username: "athlete1",
@@ -39,12 +35,18 @@ const physiotherapist1 = {
   usertype: "physiotherapist"
 }
 
+const appStates = {
+  FrontPage: 1,
+  Login: 2,
+  Register: 3,
+  Dashboard: 4,
+};
 
 
 class App extends Component {
   state = {
-    appState: appStates.Login,
-    selection: 3,
+    appState: appStates.FrontPage,
+    selection: 0,
   };
 
   changeState = (s) => this.setState({ appState: s });
@@ -57,11 +59,12 @@ class App extends Component {
     const state = this.state.appState;
     switch (state) {
       
-      case appStates.Login:
+
+      case appStates.FrontPage:
         return (
           <div>
-            <Login
-              success={false}
+            <h2></h2>
+            <FrontPage
               changeState={this.changeState}
               appState={this.state.appState}
               cookie={sessionCookie}
@@ -69,12 +72,30 @@ class App extends Component {
           </div>
         );
 
-      case appStates.LoginSuccess:
+      case appStates.Login:
         return (
           <div>
-            <Login success={true} changeState={this.changeState} appState={this.state.appState}/>
+            <h2></h2>
+            <Login
+              changeState={this.changeState}
+              appState={this.state.appState}
+              cookie={sessionCookie}
+            />
           </div>
         );
+
+        case appStates.Register:
+        return (
+          <div>
+            <h2></h2>
+            <Register
+              changeState={this.changeState}
+              appState={this.state.appState}
+              cookie={sessionCookie}
+            />
+          </div>
+        );
+
         case appStates.Dashboard:
         switch(sessionCookie.usertype)
         {

@@ -3,7 +3,7 @@ import "../index.css";
 import "bootstrap/dist/css/bootstrap.css";
 
 
-class  NonAthleteMenu extends Component {
+class  Menu extends Component {
 
   changeSelected = (tab) => {
     this.props.changeSelection(tab);
@@ -11,43 +11,55 @@ class  NonAthleteMenu extends Component {
 
   render() {
     return (
-      <div class="">
-      <div class="">
-        <ul class="">
-          <li class="d-grid col-4">
-            <a
-              href="#" 
-              class={
-                "text-center nav-link w-150" + 
-                (this.props.selection === 0 ? " active" : "")
-              } 
-              onClick={() => this.changeSelected(0)}
-            > 
-              My Profile
-            </a>
-          </li>
-          <li class={"d-grid col-4"}>
+      <div class="card">
+      <div class="card-header">
+        <ul class="nav nav-tabs card-header-tabs">
+          <li class={"d-grid col-3"}>
             <a
               href="#"
               class={
-                "text-center nav-link w-150" +
+                "text-center nav-link w-50 mx-auto" +
+                (this.props.selection === 0 ? " active" : "")
+              }
+              onClick={() => this.changeSelected(0)}
+            >
+              0
+            </a>
+          </li>
+          <li class={"d-grid col-3"}>
+            <a
+              href="#"
+              class={
+                "text-center nav-link w-50 mx-auto" +
                 (this.props.selection === 1 ? " active" : "")
               }
               onClick={() => this.changeSelected(1)}
             >
-              My Clients
+              1
             </a>
           </li>
-          <li class={"d-grid col-4"}>
+          <li class={"d-grid col-3"}>
             <a
               href="#"
               class={
-                "text-center nav-link w-150" +
+                "text-center nav-link w-50 mx-auto" +
                 (this.props.selection === 2 ? " active" : "")
               }
               onClick={() => this.changeSelected(2)}
             >
-              Add Clients
+              2
+            </a>
+          </li>
+          <li class={"d-grid col-3"}>
+            <a
+              href="#"
+              class={
+                "text-center nav-link w-50 mx-auto" +
+                (this.props.selection === 3 ? " active" : "")
+              }
+              onClick={() => this.changeSelected(3)}
+            >
+              3
             </a>
           </li>
         </ul>
@@ -62,4 +74,4 @@ class  NonAthleteMenu extends Component {
   }
 }
 
-export default NonAthleteMenu;
+export default Menu;
