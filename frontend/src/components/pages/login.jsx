@@ -1,7 +1,10 @@
 import React, { Component } from "react";
 
 const appStates = {
-  Dashboard: 3,
+  FrontPage: 1,
+  Login: 2,
+  Register: 3,
+  Dashboard: 4,
 };
 
 class Login extends Component {
@@ -21,25 +24,33 @@ class Login extends Component {
   render() {
     return (
       <div class="card text-center">
-      <script>{this.sessionCookie()}</script>
-        <h1>{
-        this.state.aSession
-        }</h1>
+        <div>
+          <button
+            onClick={() => this.props.changeState(appStates.FrontPage)}
+            type="submit"
+            class="btn btn-primary"
+          >
+            Back
+          </button>
+        </div>
+        <script>{this.sessionCookie()}</script>
+        <h1>{this.state.aSession}</h1>
         <div class="card-header">
-          
-          <input type="text" id="userID"/>
-          <a
-            style={{ fontSize: 25 }}
-            class="btn btn-secondary w-25 mx-auto"
+          <input type="text" id="userID" />
+
+        </div>
+        <div>          <button
+            class="btn btn-primary"
             onClick={() => {
-              this.myFunction()
+              this.myFunction();
               if (this.state.correctValue === this.state.textValue) {
-              this.props.changeState(appStates.Dashboard)}}}
+                this.props.changeState(appStates.Dashboard);
+              }
+            }}
             href="#"
           >
             Login
-          </a>
-        </div>
+          </button></div>
       </div>
     );
   }
