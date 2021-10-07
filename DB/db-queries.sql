@@ -17,7 +17,7 @@ INSERT INTO USER(ID ,NAME ,PASSWORD ,USERNAME, ROLE_ID) VALUES ('1', 'name1', 'p
 
 INSERT INTO ATHLETE_STAFF (ID ,ATHLETE_ID ,STAFF_ID ) VALUES  ('1', '2', '1');
 
-INSERT INTO RECORDING(RECORDINGID, ATHLETEID ) VALUES ('1','1');
+INSERT INTO RECORDING(RECORDINGID, ATHLETEID ) VALUES ('1','2');
 
 INSERT INTO RECORDINGDATA(time, sensor1,sensor2,sensor3,sensor4, recordingID) SELECT * FROM CSVREAD('C:\\Users\\alvar\\Documents\\uni\\4th year\\IndustrialTeamProject\\datasets\\SensorTest-set2\\all-sensors.csv');
 
