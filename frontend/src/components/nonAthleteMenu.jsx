@@ -3,7 +3,7 @@ import "../index.css";
 import "bootstrap/dist/css/bootstrap.css";
 
 
-class  Menu extends Component {
+class  NonAthleteMenu extends Component {
 
   changeSelected = (tab) => {
     this.props.changeSelection(tab);
@@ -11,10 +11,10 @@ class  Menu extends Component {
 
   render() {
     return (
-      <div class="card">
-      <div class="card-header">
-        <ul class="nav flex-column nav-tabs card-header-tabs">
-          <li class={"d-grid col-4"}>
+      <div class="">
+      <div class="">
+        <ul class="">
+          <li class="d-grid col-4">
             <a
               href="#" 
               class={
@@ -62,4 +62,4 @@ class  Menu extends Component {
   }
 }
 
-export default Menu;
+export default NonAthleteMenu;

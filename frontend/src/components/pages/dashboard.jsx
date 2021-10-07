@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "../../index.css";
-import Menu from "../menu";
+import NonAthleteMenu from "../nonAthleteMenu";
 import ExampleImage from "../assets/ExampleImageAnatomy.PNG"
 import Page1 from "./page1";
 import Page2 from "./page2";
@@ -24,14 +24,14 @@ class Dashboard extends Component {
           <img class='profilepic' alt='profilepicture' src={profilepic} />
           <h1>Name</h1>
           <h3>Job role</h3>
+          <NonAthleteMenu
+          selection={this.props.selection}
+          changeSelection={this.props.changeSelection}
+        / >
         </div>
       </div>
 
       <div class='mainpage'>
-        <Menu
-          selection={this.props.selection}
-          changeSelection={this.props.changeSelection}
-        >
           {/* {this.setState({MenuRef: this.Menu.current})}
           {(this.state.MenuRef !== null)? this.state.MenuRef.state.selected : "9"} */}
           {this.props.selection === 0 ? (
@@ -61,8 +61,6 @@ class Dashboard extends Component {
           ) : (
             ""
           )}
-          {/* <Products /> */}
-        </Menu>
       </div>
 
       {/* <div>
