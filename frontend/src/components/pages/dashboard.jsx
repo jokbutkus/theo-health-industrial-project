@@ -18,8 +18,8 @@ class Dashboard extends Component {
 
   render() {
     return (
-      <>
-      <div class="sidebar">
+      <div>
+      <div style={{height : 10000}} class="sidebar">
         <div className="info">
           <img class='profilepic' alt='profilepicture' src={profilepic} />
           <h1>Name</h1>
@@ -62,11 +62,7 @@ class Dashboard extends Component {
             ""
           )}
       </div>
-
-      {/* <div>
-        
-      </div> */}
-      </>
+      </div>
     );
   }
 }
