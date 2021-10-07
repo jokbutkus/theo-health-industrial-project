@@ -14,7 +14,7 @@ public class RecordingData {
     @JoinColumn(name = "recordingID")
     private Recording recording;
 
-    @Column(unique = true, nullable = false)
+    @Column(nullable = false)
     private LocalDateTime time;
     private Long sensor1;
     private Long sensor2;
