@@ -18,8 +18,8 @@ public class User {
     @OneToMany(mappedBy = "user")
     private Set<Recording> recordings;
 
-    @OneToOne(mappedBy = "staff")
-    private AthleteStaff staffLink;
+    @OneToMany(mappedBy = "staff")
+    private Set<AthleteStaff> staffLink;
 
     @OneToOne(mappedBy = "athlete")
     private AthleteStaff athleteLink;
