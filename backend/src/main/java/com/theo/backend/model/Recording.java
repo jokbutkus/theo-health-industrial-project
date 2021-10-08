@@ -1,5 +1,6 @@
 package com.theo.backend.model;
 
+import com.google.gson.annotations.Expose;
 import lombok.Getter;
 import javax.persistence.*;
 import java.util.Set;
@@ -10,6 +11,7 @@ import java.util.Set;
 public class Recording {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @Expose
     private Long recordingID;
 
     @OneToMany(mappedBy = "recording")
@@ -18,5 +20,7 @@ public class Recording {
     @ManyToOne
     @JoinColumn(name = "athleteID")
     private User user;
-    
+
+    @Expose
+    private String date;
 }

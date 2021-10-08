@@ -37,6 +37,14 @@ public class Controller {
         return gson.toJson(data);
     }
 
+    @GetMapping("/exercise-list/{id}")
+    public String exerciseListRetrieval(@PathVariable Long id){
+        final Optional<User> user = userRepository.findById(id);
+        final List<Recording> recordings = recordingRepository.findAllByUser(user);
+        System.out.println(recordings.toString());
+        return gson.toJson(recordings);
+    }
+
     @PostMapping("/login")
     public LoginResponse login(@RequestBody final LoginRequest loginRequest) {
         final User user = findLoggedInUser(loginRequest);
