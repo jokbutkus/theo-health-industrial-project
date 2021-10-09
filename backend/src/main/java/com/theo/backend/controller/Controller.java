@@ -19,7 +19,7 @@ import java.util.Optional;
 @RestController
 @RequiredArgsConstructor
 public class Controller {
-    Gson gson = new GsonBuilder().excludeFieldsWithoutExposeAnnotation().create();
+    private final Gson gson = new GsonBuilder().excludeFieldsWithoutExposeAnnotation().create();
 
     private final UserRepository userRepository;
     private final RecordingRepository recordingRepository;
