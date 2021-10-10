@@ -1,11 +1,15 @@
 package com.theo.backend.model;
 
-import lombok.Getter;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.Set;
 
 @Getter
+@Setter
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @Table(name = "user")
 public class User {
