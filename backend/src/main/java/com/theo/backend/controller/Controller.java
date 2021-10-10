@@ -3,21 +3,26 @@ package com.theo.backend.controller;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.theo.backend.json.request.LoginRequest;
+import com.theo.backend.json.request.SignupRequest;
 import com.theo.backend.json.response.LoginResponse;
 import com.theo.backend.json.response.UserResponse;
 import com.theo.backend.model.AthleteStaff;
 import com.theo.backend.model.Recording;
 import com.theo.backend.model.RecordingData;
 import com.theo.backend.model.User;
+import com.theo.backend.model.UserRole;
 import com.theo.backend.repositories.AthleteStaffRepository;
 import com.theo.backend.repositories.RecordingDataRepository;
 import com.theo.backend.repositories.RecordingRepository;
 import com.theo.backend.repositories.UserRepository;
+import com.theo.backend.repositories.UserRoleRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
+
+import static com.theo.backend.constants.UserRoleConstants.PHYSIOTHERAPIST_ROLE;
 
 @RestController
 @RequiredArgsConstructor
@@ -28,6 +33,7 @@ public class Controller {
             .create();
 
     private final UserRepository userRepository;
+    private final UserRoleRepository userRoleRepository;
     private final RecordingRepository recordingRepository;
     private final RecordingDataRepository recordingDataRepository;
     private final AthleteStaffRepository athleteStaffRepository;
@@ -69,7 +75,7 @@ public class Controller {
     }
 
     @GetMapping("/exercise-list/{id}")
-    public String exerciseListRetrieval(@PathVariable Long id){
+    public String exerciseListRetrieval(@PathVariable Long id) {
         final Optional<User> user = userRepository.findById(id);
         final List<Recording> recordings = recordingRepository.findAllByUser(user);
         return gson.toJson(recordings);
@@ -107,5 +113,30 @@ public class Controller {
                 .name(user.getName())
                 .role(user.getRole().getName())
                 .build();
+    }
+
+    @PostMapping("/signup")
+    public LoginResponse signup(@RequestBody final SignupRequest signupRequest) {
+        if (!userRoleRepository.existsByName(PHYSIOTHERAPIST_ROLE)) {
+            saveUserRoleWithName(PHYSIOTHERAPIST_ROLE);
+        }
+        final UserRole userRole = userRoleRepository.findByName(PHYSIOTHERAPIST_ROLE)
+                .orElse(null);
+
+        final User user = User.builder()
+                .username(signupRequest.getUsername())
+                .password(signupRequest.getPassword())
+                .name(signupRequest.getName())
+                .role(userRole)
+                .build();
+
+        final User newUser = userRepository.save(user);
+        return buildLoginResponse(newUser);
+    }
+
+    private void saveUserRoleWithName(final String userRoleName) {
+        final UserRole userRole = new UserRole();
+        userRole.setName(userRoleName);
+        userRoleRepository.save(userRole);
     }
 }
