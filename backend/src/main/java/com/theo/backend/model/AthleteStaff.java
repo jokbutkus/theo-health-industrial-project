@@ -1,5 +1,6 @@
 package com.theo.backend.model;
 
+import com.google.gson.annotations.Expose;
 import javax.persistence.*;
 
 @Entity
@@ -14,5 +15,6 @@ public class AthleteStaff {
     private User staff;
 
     @OneToOne
+    @Expose
     private User athlete;
 }
