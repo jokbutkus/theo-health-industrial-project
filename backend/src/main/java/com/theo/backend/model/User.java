@@ -1,5 +1,6 @@
 package com.theo.backend.model;
 
+import com.google.gson.annotations.Expose;
 import lombok.Getter;
 
 import javax.persistence.*;
@@ -12,6 +13,7 @@ public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @Expose
     private Long id;
 
     @ManyToOne
@@ -27,9 +29,11 @@ public class User {
     @OneToOne(mappedBy = "athlete")
     private AthleteStaff athleteLink;
 
+    @Expose
     @Column(unique = true, nullable = false)
     private String username;
     @Column(nullable = false)
     private String password;
+    @Expose
     private String name;
 }
