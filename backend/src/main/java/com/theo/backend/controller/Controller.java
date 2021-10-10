@@ -5,10 +5,13 @@ import com.google.gson.GsonBuilder;
 import com.theo.backend.json.request.LoginRequest;
 import com.theo.backend.json.request.SignupRequest;
 import com.theo.backend.json.response.LoginResponse;
+import com.theo.backend.json.response.UserResponse;
+import com.theo.backend.model.AthleteStaff;
 import com.theo.backend.model.Recording;
 import com.theo.backend.model.RecordingData;
 import com.theo.backend.model.User;
 import com.theo.backend.model.UserRole;
+import com.theo.backend.repositories.AthleteStaffRepository;
 import com.theo.backend.repositories.RecordingDataRepository;
 import com.theo.backend.repositories.RecordingRepository;
 import com.theo.backend.repositories.UserRepository;
@@ -24,16 +27,44 @@ import static com.theo.backend.constants.UserRoleConstants.PHYSIOTHERAPIST_ROLE;
 @RestController
 @RequiredArgsConstructor
 public class Controller {
-    private final Gson gson = new GsonBuilder().excludeFieldsWithoutExposeAnnotation().create();
+    private final Gson gson = new GsonBuilder()
+            .excludeFieldsWithoutExposeAnnotation()
+            .serializeNulls()
+            .create();
 
     private final UserRepository userRepository;
     private final UserRoleRepository userRoleRepository;
     private final RecordingRepository recordingRepository;
     private final RecordingDataRepository recordingDataRepository;
+    private final AthleteStaffRepository athleteStaffRepository;
 
     @GetMapping("/")
     public String index() {
         return "Welcome to Theo!";
+    }
+
+    @GetMapping("/user/{id}")
+    public UserResponse userRetrieval(@PathVariable Long id){
+        final Optional<User> user = userRepository.findById(id);
+        if (!user.isPresent()) return null;
+        else return Optional.ofNullable(user)
+                .map(this::buildUserResponse)
+                .orElse(null);
+    }
+
+    private UserResponse buildUserResponse(final Optional<User> user) {
+        return UserResponse.builder()
+                .userID(user.get().getId())
+                .username(user.get().getUsername())
+                .name(user.get().getName())
+                .build();
+    }
+
+    @GetMapping("/client-list/{id}")
+    public String clientListRetrieval(@PathVariable Long id){
+        final Optional<User> user = userRepository.findById(id);
+        final List<AthleteStaff> clientList = athleteStaffRepository.findAllByStaff(user);
+        return gson.toJson(clientList);
     }
 
     @GetMapping("/exercise/{id}")
@@ -47,7 +78,6 @@ public class Controller {
     public String exerciseListRetrieval(@PathVariable Long id) {
         final Optional<User> user = userRepository.findById(id);
         final List<Recording> recordings = recordingRepository.findAllByUser(user);
-        System.out.println(recordings.toString());
         return gson.toJson(recordings);
     }
 
