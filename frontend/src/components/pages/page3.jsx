@@ -9,14 +9,39 @@ class Page3 extends Component {
     nameOfItem: "",
 
     User: [
-      { id: 1, Username: "Mark Zuck", data: "Some basic overview information about some dude about something" },
-      { id: 2, Username: "Pedo bear", data: "Some information" },
-      { id: 4, Username: "egg", data: "Some information" },
+      {
+        id: 1,
+        Username: "Mark Zuck",
+        DOB: "10/10/1900",
+        Gender: "Male",
+        Height: "3ft",
+        Weight: "69kg",
+      },
+      {
+        id: 2,
+        Username: "Stan Smith",
+        DOB: "10/10/2001",
+        Gender: "Male",
+        Height: "9ft",
+        Weight: "420kg",
+      },
+      {
+        id: 4,
+        Username: "egg",
+        DOB: "10/10/1994",
+        Gender: "Female",
+        Height: "5ft 6",
+        Weight: "3kg",
+      },
     ],
 
-    text: "",
-    data: "0",
+    name: "",
+    DOB: "",
+    Gender: "",
+    Height: "",
+    Weight: "",
     selection: "0",
+    allowSubmit: true
   };
 
   handleChange = (event) => {
@@ -36,16 +61,47 @@ class Page3 extends Component {
   };
 
   handleSubmit = () => {
+    
+    if (this.state.name == "" || !this.state.name.replace(/\s/g, '').length) {
+      alert("Please enter client's name!");
+      this.state.allowSubmit = false;
+    }
+    else if(this.state.DOB == "") 
+    {
+      alert('you have not entered a date of birth!');
+    }
+    else if (this.state.Gender == "" || !this.state.Gender.replace(/\s/g, '').length) {
+      alert("Please enter client's gender!");
+      this.state.allowSubmit = false;
+    }
+    else if (this.state.Height == "" || !this.state.Height.replace(/\s/g, '').length) {
+      alert("Please enter client's height!");
+      this.state.allowSubmit = false;
+    }
+    else if (this.state.Weight == "" || !this.state.Weight.replace(/\s/g, '').length) {
+      alert("Please enter client's weight!");
+      this.state.allowSubmit = false;
+    } else {
+      this.state.allowSubmit = true;
+    }
+
+    if (this.state.allowSubmit == true){
       this.setState({
         User: [
           ...this.state.User,
           {
             id: this.state.User.length + 1,
-            Username: this.state.text,
-            data: this.state.data,
+            Username: this.state.name,
+            DOB: this.state.DOB,
+            Gender: this.state.Gender,
+            Height: this.state.Height,
+            Weight: this.state.Weight,
           },
         ],
       });
+    }
+    alert(this.state.allowSubmit);
+    
   };
 
   changeSelected = (tab) => {
@@ -53,10 +109,6 @@ class Page3 extends Component {
   };
 
   render() {
-    let toggleShow = () => {
-      console.log(this.state.show);
-      this.setState({ show: !this.state.show });
-    };
     return (
       <div class="">
         <h3>add a person</h3>
@@ -65,16 +117,43 @@ class Page3 extends Component {
             <input
               placeholder="Name"
               class="form-control"
-              name="text"
+              name="name"
               type="text"
               onChange={this.handleChange}
             />
           </div>
           <div class="row">
             <input
-              placeholder="Some Data"
+              placeholder="DOB"
               class="form-control"
-              name="data"
+              name="DOB"
+              type="date"
+              onChange={this.handleChange}
+            />
+          </div>
+          <div class="row">
+            <input
+              placeholder="Gender"
+              class="form-control"
+              name="Gender"
+              type="text"
+              onChange={this.handleChange}
+            />
+          </div>
+          <div class="row">
+            <input
+              placeholder="Height"
+              class="form-control"
+              name="Height"
+              type="text"
+              onChange={this.handleChange}
+            />
+          </div>
+          <div class="row">
+            <input
+              placeholder="Weight"
+              class="form-control"
+              name="Weight"
               type="text"
               onChange={this.handleChange}
             />
@@ -93,12 +172,12 @@ class Page3 extends Component {
         <br />
         <br />
         {/* Display Person */}
+        <h2>This is just for testing and wouldn't be on the page</h2>
         <form>
           <h2>Clients</h2>
           {this.state.User.map((user, index) => (
             <div key={index} class="row">
               <img
-              
                 style={{ maxHeight: 100, maxWidth: 100 }}
                 src={profilepic}
                 alt=""
@@ -108,7 +187,10 @@ class Page3 extends Component {
                 <input class="col m-2" type="text" value={user.Username} />
               </div>
               <div class="row m-2">
-                <input class="col" type="text" value={user.data} />
+                <input class="" type="text" value={user.DOB} />
+                <input class="" type="text" value={user.Gender} />
+                <input class="" type="text" value={user.Height} />
+                <input class="" type="text" value={user.Weight} />
               </div>
               <div class="col-3">
                 <button
