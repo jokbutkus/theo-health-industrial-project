@@ -6,7 +6,7 @@ DELETE USER_ROLE where true;
 
 INSERT INTO USER_ROLE (ID ,NAME ) VALUES ('1','trainer'),('2','athlete');
 
-INSERT INTO USER(ID ,NAME ,PASSWORD ,USERNAME, ROLE_ID, dateOfBirth, gender, height, weight) VALUES ('1', 'name1', 'password', 'username1', ' 1', '24-01-2000', 'Male', '175', '65'), ('2', 'name2', 'password', 'username2', ' 2', '14-01-2001', 'Female', '165', '55'), ('3', 'name3', 'password', 'username3', '2', '28-02-1999', 'Male', '195', '95');
+INSERT INTO USER(ID ,NAME ,PASSWORD ,USERNAME, ROLE_ID, date_Of_Birth, gender, height, weight) VALUES ('1', 'name1', 'password', 'username1', ' 1', '24-01-2000', 'Male', '175', '65'), ('2', 'name2', 'password', 'username2', ' 2', '14-01-2001', 'Female', '165', '55'), ('3', 'name3', 'password', 'username3', '2', '28-02-1999', 'Male', '195', '95');
 
 INSERT INTO ATHLETE_STAFF (ID ,ATHLETE_ID ,STAFF_ID ) VALUES  ('1', '2', '1'), ('2', '3', '1');
 
