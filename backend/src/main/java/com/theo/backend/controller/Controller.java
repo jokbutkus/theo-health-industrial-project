@@ -57,6 +57,10 @@ public class Controller {
                 .userID(user.get().getId())
                 .username(user.get().getUsername())
                 .name(user.get().getName())
+                .gender(user.get().getGender())
+                .dateOfBirth(user.get().getDateOfBirth())
+                .height(user.get().getHeight())
+                .weight(user.get().getWeight())
                 .build();
     }
 

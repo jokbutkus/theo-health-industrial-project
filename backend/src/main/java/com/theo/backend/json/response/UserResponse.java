@@ -9,4 +9,8 @@ public class UserResponse {
     private Long userID;
     private String name;
     private String username;
+    private String dateOfBirth;
+    private String gender;
+    private Long height;
+    private Long weight;
 }
