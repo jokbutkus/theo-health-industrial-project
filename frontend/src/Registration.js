@@ -27,7 +27,7 @@ class Reg extends Component {
           }
 
           register(event) {
-            fetch('http://localhost:8080/Api/login/Databasename', {
+            fetch('http://localhost:8080/signup', {
               method: 'post',
               headers: 
                 {
