@@ -1,4 +1,3 @@
-DELETE ATHLETE_STAFF where true;
 DELETE RECORDINGDATA where true;
 DELETE RECORDING where true;
 DELETE USER where true;
