@@ -2,6 +2,7 @@ DELETE RECORDINGDATA where true;
 DELETE RECORDING where true;
 DELETE USER where true;
 DELETE USER_ROLE where true;
+DELETE ATHLETE_STAFF where true;
 
 
 INSERT INTO USER_ROLE (ID ,NAME ) VALUES ('1','trainer'),('2','athlete');
