@@ -29,14 +29,11 @@ class Page2 extends Component {
     this.setState({
       [event.target.name]: newList,
     });
-  };
-  
+  }; 
 
   changeSelected = (tab) => {
     this.props.changeSelection(tab);
   };
-
-
 
   render() {
     const state = this.state.appState;
@@ -45,7 +42,7 @@ class Page2 extends Component {
         return (
           <div>
             <h1>{__filename}</h1>
-            <form
+            {/* <form
             onClick = {this.setState({appStates : UserSelected})}>
               <h2>Clients</h2>
               {this.state.User.map((user, index) => (
@@ -78,7 +75,7 @@ class Page2 extends Component {
                   <br />
                 </div>
               ))}
-            </form>
+            </form> */}
           </div>
         );
       case appStates.NotSelected:
