@@ -9,7 +9,7 @@ import front_BG from '../images/Front.jpg';
 
 
 
-class BusinessMenu extends Component {
+class Page1 extends Component {
   state = {
   };
 
@@ -33,4 +33,4 @@ class BusinessMenu extends Component {
   }
 }
 
-export default BusinessMenu;
+export default Page1;

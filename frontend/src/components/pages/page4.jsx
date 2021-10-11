@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "../../index.css";
 import "bootstrap/dist/css/bootstrap.css";
 
-class BusinessMenu extends Component {
+class Page4 extends Component {
   state = {
   };
 
@@ -19,4 +19,4 @@ class BusinessMenu extends Component {
   }
 }
 
-export default BusinessMenu;
+export default Page4;

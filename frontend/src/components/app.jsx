@@ -17,8 +17,8 @@ const athlete1 = {
 const athlete2 = {
   username: "athlete2",
   usertype: "injuredathlete"
-
 };
+
 const athlete3 = {
   username: "athlete3",
   usertype: "athlete"

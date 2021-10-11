@@ -3,7 +3,7 @@ import "../../index.css";
 import "bootstrap/dist/css/bootstrap.css";
 import profilepic from '../images/profilepic.jpg';
 
-class BusinessMenu extends Component {
+class Page3 extends Component {
   state = {
     menuSelection: 0,
     nameOfItem: "",
@@ -134,5 +134,5 @@ class BusinessMenu extends Component {
   }
 }
 
-export default BusinessMenu;
+export default Page3;
 
