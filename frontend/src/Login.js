@@ -25,7 +25,11 @@ class Login extends Component {
 
     login(event) {
         debugger;
+<<<<<<< Updated upstream
         fetch('http://localhost:8080/Api/login/Login', {
+=======
+        fetch('localhost:8080/login', {
+>>>>>>> Stashed changes
             method: 'post',
             headers: {
                 'Accept': 'application/json',
