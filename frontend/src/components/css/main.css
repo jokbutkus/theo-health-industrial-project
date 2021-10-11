@@ -1,0 +1,35 @@
+.sideBar {
+  position:fixed;
+  float: left;
+  width: 30%;
+  height: 80vh;
+  background-color: #078D9B;
+  text-align: center;
+  margin:10px;
+}
+
+.pageHeader {
+  text-align: center;
+  background-color: #ED7D31;
+  color: white;
+  height: 60px;
+}
+
+.content {
+  position:fixed;
+  float:left;
+  /* left:auto; */
+  width: 65%;
+  height: 80vh;
+  background-color: #da9f46;
+  margin:10px;
+}
+
+.profilepic {
+  width: 100px;
+}
+
+.logo{
+  width: 300px;
+  float: right;
+}
