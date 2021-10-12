@@ -112,11 +112,6 @@ class BusinessMenu extends Component {
   }
   
 
-
-
-
-
-
   changeSelected = (tab) => {
     this.props.changeSelection(tab);
   };
@@ -130,7 +125,6 @@ class BusinessMenu extends Component {
             <img class='front q_right legs' id="q_right" alt='Right_Q' src={R_Q} />
             <img class='front q_left legs' id="q_left" alt='Left_Q' src={L_Q} />
           </div>
-
           <div className="backLegs">
             <img class='legs image_BG' alt='back_BG' src={back_BG} />
             <img class='back r_right legs' id="r_right" alt='Right_H' src={R_H} />
@@ -138,11 +132,21 @@ class BusinessMenu extends Component {
             
           </div>
         </div>
-        <button style={{ position: "absolute", bottom:"10%", right:"10%"}} onClick={this.unPausePlay}>unPausePlay</button>
-        <button style={{ position: "absolute", bottom:"20%", right:"10%"}} onClick={this.pausePlay}>pause</button>
+        <div className="timeControl">
+          <div className="buttonContainer">
+            <button class='heatmapbutton'  onClick={this.pausePlay}>Pause</button>
+            <button class='heatmapbutton'  onClick={this.unPausePlay}>Play</button>
+          </div>
+          <div className="textBox">
+            <h4 style={{ flex: "8" , textAlign: "right"}} >14/z2/z3/z44</h4>
+            <h4 style={{ flex:"1" , textAlign: "center" }}> / </h4>
+            <h4 style={{ flex: "8" , textAlign: "left"}} >15/z3/z4/z55</h4>
+          </div>
+        </div>
       </>
     );
   }
 }
-export default BusinessMenu;
 
+// style={{ position: "absolute", bottom:"20%", right:"10%"}}
+export default BusinessMenu;

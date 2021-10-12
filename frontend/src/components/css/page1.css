@@ -1,15 +1,17 @@
 
 /* Alligning the images on the page */
 .image-container {
-    margin: 2px;
     display:flex;
-    height: 70vh;
-    width: 80vh;
+    padding-left: 5%;
+    padding-right: 10%;
+    height: 50vh;
+    width: 107vh;
     /* position: static; */
 }
 
 .frontLegs{
-    flex:1;
+    /* margin-left:; */
+    flex:2;
 }
 
 .backLegs{
@@ -29,36 +31,78 @@
 
 .back {
     position:absolute;
+    
 }
 
 .legs {
     /* adjustable to fit better at final stages VH is Viewpoint height */
-    width: 35vh;
-    height: 40vh;
-}
-
-
-.q_right {
-    /* 1 */
-    filter: hue-rotate(300deg) saturate(200%);
-}
-
-.q_left {
-    /* 2 */
-    filter: hue-rotate(0deg) saturate(200%) brightness(90%);
-}
-
-.r_right {
-    /* 3 */
-    filter: hue-rotate(90deg) saturate(200%);
-}
-
-.r_left {
-    /* 4 */
-    filter: hue-rotate(30deg) saturate(200%);
+    width: 45vh;
+    height: 50vh;
 }
 
 .nonAthleteMenu {
     background-color: blueviolet;
     color: blueviolet;
 }
+
+.heatmapbutton {
+    margin: 0 3px;
+    width: 17%;
+    height: 100%;
+    background-color: #fc9154;
+    border-radius: 15px;
+    border-color: black;
+    font-size: x-large;
+}
+
+.buttonContainer{
+    flex:1;
+    height:20%;
+    display: flex;
+    margin-top: 2%;
+    width: 100%;
+    justify-content: center;
+    align-content: center;
+    
+}
+
+.textBox {
+    margin-top: 1%;
+    flex:2;
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    align-content: center;
+    width: 100%;
+}
+
+.timeControl {
+    width: 100vh;
+    height: 20vh;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    
+}
+
+
+/* .q_right {
+    1
+    filter: hue-rotate(300deg) saturate(200%);
+}
+
+.q_left {
+    2
+    filter: hue-rotate(0deg) saturate(200%) brightness(90%);
+}
+
+.r_right {
+    3
+    filter: hue-rotate(90deg) saturate(200%);
+}
+
+.r_left {
+    4
+    filter: hue-rotate(30deg) saturate(200%);
+} */
