@@ -1,12 +1,64 @@
 
 /* Alligning the images on the page */
 .image-container {
- 
+    margin: 2px;
+    display:flex;
+    height: 70vh;
+    width: 80vh;
+    /* position: static; */
 }
 
+.frontLegs{
+    flex:1;
+}
+
+.backLegs{
+    flex:2;
+}
+
+
 .image_BG {
+    opacity: 0.3;
+    position: absolute;
+}
+
+.front {
+    
+    position: absolute;
+}
+
+.back {
+    position:absolute;
+}
+
+.legs {
     /* adjustable to fit better at final stages VH is Viewpoint height */
-    width: 45vh;
-    height: 50vh;
-    padding: 2px;
+    width: 35vh;
+    height: 40vh;
+}
+
+
+.q_right {
+    /* 1 */
+    filter: hue-rotate(300deg) saturate(200%);
+}
+
+.q_left {
+    /* 2 */
+    filter: hue-rotate(0deg) saturate(200%) brightness(90%);
+}
+
+.r_right {
+    /* 3 */
+    filter: hue-rotate(90deg) saturate(200%);
+}
+
+.r_left {
+    /* 4 */
+    filter: hue-rotate(30deg) saturate(200%);
+}
+
+.nonAthleteMenu {
+    background-color: blueviolet;
+    color: blueviolet;
 }

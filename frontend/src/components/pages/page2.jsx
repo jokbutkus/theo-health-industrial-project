@@ -62,7 +62,6 @@ class Page2 extends Component {
       console.log(this.state.show);
       this.setState({ show: !this.state.show });
     };
-
     const state = this.state.appState;
     switch (state) {
       case appStates.NotSelected:
@@ -123,9 +122,6 @@ class Page2 extends Component {
       case appStates.NotSelected:
           return(
             <div>
-              {/* <UserInformation  
-              changeState={this.changeState}
-              appState={this.state.appState}/> */}
             </div>
           );
     }

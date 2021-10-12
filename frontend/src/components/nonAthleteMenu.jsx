@@ -12,13 +12,13 @@ class  NonAthleteMenu extends Component {
   render() {
     return (
       <div class="">
-      <div class="">
-        <ul class="">
+      <div class="center_block">
+        <ul class="ul_class">
           <li class="d-grid col-4">
             <a
               href="#" 
               class={
-                "text-center nav-link w-150" + 
+                "text-center nav-link sidebutton" + 
                 (this.props.selection === 0 ? " active" : "")
               } 
               onClick={() => this.changeSelected(0)}
@@ -30,7 +30,7 @@ class  NonAthleteMenu extends Component {
             <a
               href="#"
               class={
-                "text-center nav-link w-150" +
+                "text-center nav-link sidebutton" +
                 (this.props.selection === 1 ? " active" : "")
               }
               onClick={() => this.changeSelected(1)}
@@ -42,7 +42,7 @@ class  NonAthleteMenu extends Component {
             <a
               href="#"
               class={
-                "text-center nav-link w-150" +
+                "text-center nav-link sidebutton" +
                 (this.props.selection === 2 ? " active" : "")
               }
               onClick={() => this.changeSelected(2)}
