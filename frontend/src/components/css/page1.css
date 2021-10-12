@@ -3,6 +3,8 @@
 .image-container {
     margin: 2px;
     display:flex;
+    height: 70vh;
+    width: 80vh;
     /* position: static; */
 }
 
