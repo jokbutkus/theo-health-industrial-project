@@ -23,23 +23,26 @@ class Login extends Component {
 
   render() {
     return (
-      <div class="card text-center">
-        <div>
+      <div class="container">
+        <div class="btn btn-outline-primary">
           <button
             onClick={() => this.props.changeState(appStates.FrontPage)}
             type="submit"
-            class="btn btn-primary"
+            class="btn"
           >
             Back
           </button>
         </div>
-        <script>{this.sessionCookie()}</script>
-        <h1>{this.state.aSession}</h1>
-        <div class="card-header">
-          <input type="text" id="userID" />
 
+        <script>{this.sessionCookie()}</script>
+        <h1 class="text-center">{this.state.aSession}</h1>
+
+        <div class="card-header text-center">
+          <input type="text" id="userID"  placeholder="Enter your session name"/>
         </div>
-        <div>          <button
+
+        <div>          
+          <button
             class="btn btn-primary"
             onClick={() => {
               this.myFunction();
