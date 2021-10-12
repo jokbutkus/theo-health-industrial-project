@@ -5,9 +5,8 @@ import ExampleImage from "../assets/ExampleImageAnatomy.PNG"
 import Page1 from "./page1";
 import Page2 from "./page2";
 import Page3 from "./page3";
-import './main.css';
+import '../css/main.css';
 import profilepic from '../images/profilepic.jpg';
-import '../css/page1.css';
 
 
 class Dashboard extends Component {
@@ -20,7 +19,12 @@ class Dashboard extends Component {
   render() {
     return (
       <>
-      <div class="sidebar">
+      <div class="topbanner">
+        <h1></h1>
+      </div>
+
+      <div>
+      <div style={{height : 10000}} class="sidebar">
         <div className="info">
           <img class='profilepic' alt='profilepicture' src={profilepic} />
           <h1>Name</h1>
@@ -39,7 +43,9 @@ class Dashboard extends Component {
             <div>
               <h1>My profile</h1>
               <br />
-              <Page1 />
+              <div className="contentbody">
+                <Page1 />
+              </div>
             </div>
           ) : (
             ""
@@ -48,7 +54,9 @@ class Dashboard extends Component {
             <div>
               <h1>My Clients</h1>
               <br />
-              <Page2 />
+              <div className="contentbody">
+                <Page2 />
+              </div>
             </div>
           ) : (
             ""
@@ -63,10 +71,7 @@ class Dashboard extends Component {
             ""
           )}
       </div>
-
-      {/* <div>
-        
-      </div> */}
+      </div>
       </>
     );
   }
