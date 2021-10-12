@@ -128,6 +128,7 @@ class App extends Component {
                       return (
                         <div>
                           <Dashboard
+                            api={api}
                             selection={this.state.selection}
                             changeSelection={this.changeSelection}
                           />
