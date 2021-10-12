@@ -22,7 +22,6 @@ class Dashboard extends Component {
       <div class="topbanner">
         <h1></h1>
       </div>
-
       <div>
       <div style={{height : 10000}} class="sidebar">
         <div className="info">
