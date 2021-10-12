@@ -116,6 +116,7 @@ class BusinessMenu extends Component {
 
 
 
+
   changeSelected = (tab) => {
     this.props.changeSelection(tab);
   };
@@ -143,5 +144,5 @@ class BusinessMenu extends Component {
     );
   }
 }
-
 export default BusinessMenu;
+
