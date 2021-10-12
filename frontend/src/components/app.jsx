@@ -113,6 +113,7 @@ class App extends Component {
                     <div>
                       <h2></h2>
                       <Register
+                        api={api}
                         changeState={this.changeState}
                         appState={this.state.appState}
                         cookie={sessionCookie}
