@@ -102,7 +102,6 @@ class App extends Component {
           case "athlete":
             return (
               <div>
-                {sessionCookie.usertype}
                 <Dashboard
                   selection={this.state.selection}
                   changeSelection={this.changeSelection}

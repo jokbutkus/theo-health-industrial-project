@@ -1,13 +1,12 @@
 import React, { Component } from "react";
 import "../../index.css";
 import NonAthleteMenu from "../nonAthleteMenu";
-import ExampleImage from "../assets/ExampleImageAnatomy.PNG"
+import ExampleImage from "../assets/ExampleImageAnatomy.PNG";
 import Page1 from "./page1";
 import Page2 from "./page2";
 import Page3 from "./page3";
-import '../css/main.css';
-import profilepic from '../images/profilepic.jpg';
-
+import "../css/main.css";
+import profilepic from "../images/profilepic.jpg";
 
 class Dashboard extends Component {
   state = {};
@@ -18,30 +17,29 @@ class Dashboard extends Component {
 
   render() {
     return (
-      <>
-      <div class="topbanner">
-        <h1></h1>
-      </div>
       <div>
-      <div style={{height : 10000}} class="sidebar">
-        <div className="info">
-          <img class='profilepic' alt='profilepicture' src={profilepic} />
-          <h1>Name</h1>
-          <h3>Job role</h3>
-          <NonAthleteMenu
-          selection={this.props.selection}
-          changeSelection={this.props.changeSelection}
-        />
+        <div class="topbanner"></div>
+        <div>
+          <div class="sidebar">
+            <div className="info">
+              <img class="profilepic" alt="profilepicture" src={profilepic} />
+              <h1>Name</h1>
+              <h3>Job role</h3>
+              <NonAthleteMenu
+                selection={this.props.selection}
+                changeSelection={this.props.changeSelection}
+              />
+            </div>
+          </div>
         </div>
-      </div>
 
-      <div class='mainpage'>
+        <div class="mainpage">
           {/* {this.setState({MenuRef: this.Menu.current})}
           {(this.state.MenuRef !== null)? this.state.MenuRef.state.selected : "9"} */}
           {this.props.selection === 0 ? (
             <div>
-              <h1>My profile</h1>
-              <br />
+              {/* <h1>My profile</h1> */}
+              {/* <br /> */}
               <div className="contentbody">
                 <Page1 />
               </div>
@@ -51,7 +49,7 @@ class Dashboard extends Component {
           )}
           {this.props.selection === 1 ? (
             <div>
-              <h1>My Clients</h1>
+              {/* <h1>My Clients</h1> */}
               <br />
               <div className="contentbody">
                 <Page2 />
@@ -62,16 +60,17 @@ class Dashboard extends Component {
           )}
           {this.props.selection === 2 ? (
             <div>
-              <h1>Add Clients</h1>
+              {/* <h1>Add Clients</h1> */}
               <br />
-              <Page3 />
+              <div className="contentbody">
+                <Page3 />
+              </div>
             </div>
           ) : (
             ""
           )}
+        </div>
       </div>
-      </div>
-      </>
     );
   }
 }
