@@ -38,12 +38,10 @@ class Login extends Component {
 
   setUsername(event) {
     this.setState({ username: event.target.value })
-    console.log(this.state.username)
   }
 
   setPassword(event) {
     this.setState({ password: event.target.value })
-    console.log(this.state.password)
   }
 
   render() {
@@ -58,7 +56,6 @@ class Login extends Component {
             Back
           </button>
         </div>
-        <script>{this.sessionCookie()}</script>
         <h1>{this.state.aSession}</h1>
         <div class="card-header">
           <input type="text" id="username" placeholder="username" value={this.state.username} onChange={this.setUsername}/>
