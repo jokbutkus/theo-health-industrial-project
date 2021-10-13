@@ -58,14 +58,22 @@ class Login extends Component {
         </div>
         <h1>{this.state.aSession}</h1>
         <div class="card-header">
-          <input type="text" id="username" placeholder="username" value={this.state.username} onChange={this.setUsername}/>
+          <input style={{ borderRadius: "25px", padding: "3.5px 10px"}} type="text" id="username" placeholder="username" value={this.state.username} onChange={this.setUsername}/>
         </div>
         <div class="card-header">
-          <input type="text" id="password" placeholder="password" value={this.state.password} onChange={this.setPassword}/>
+          <input style={{ borderRadius: "25px", padding: "3.5px 10px"}} type="text" id="password" placeholder="password" value={this.state.password} onChange={this.setPassword}/>
         </div>
         <div>          
           <button
             class="btn btn-primary"
+            style={{
+              borderRadius: "25px",
+              margin: "10px 0 0 0",
+              position: "relative",
+              float: "right",
+              left: "-50%",
+              textAlign: "left"
+            }}
             onClick={() => {
               this.loginMethod(this.state.username, this.state.password);
             }}
