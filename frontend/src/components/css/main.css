@@ -19,10 +19,10 @@
     margin: 0 auto;
     background-color: #0297a2;
     color: white;
-    width: 23vh;
-    height: 7vh;
+    width: 13vw;
+    height: 8vh;
     border-color: white;
-    font-size: x-large;
+    font-size: 2vh;
     /* display:inline; */
     /* padding: 0; */
     /* display: block; */
@@ -70,7 +70,7 @@
   border: 3px solid black;
   border-radius: 25px;
   height: auto;
-  width: 110vh;
+  width: 60vw;
   /* top: 15%; */
   left: 35%;
   background: white;
