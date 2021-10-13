@@ -6,6 +6,7 @@ import Page1 from "./page1";
 import Page2 from "./page2";
 import Page3 from "./page3";
 import UserProfile from "./userProfile";
+import ExerciseList from "./exerciseList";
 import "../css/main.css";
 import profilepic from "../images/profilepic.jpg";
 import theobackground from "../images/theobackground.jpg";
@@ -42,7 +43,7 @@ class Dashboard extends Component {
           {(this.state.MenuRef !== null)? this.state.MenuRef.state.selected : "9"} */}
           {this.props.selection === 0 ? (
             <div>
-              {/* <h1>My profile</h1> */}
+              {/* <h1>Heatmap</h1> */}
               {/* <br /> */}
               <div className="contentbody">
                 <Page1
@@ -86,6 +87,20 @@ class Dashboard extends Component {
               <div className="contentbody">
                 <UserProfile
                   api={this.props.api}
+                />
+              </div>
+            </div>
+          ) : (
+            ""
+          )}
+          {this.props.selection === 4 ? (
+            <div>
+              {/* <h1>Exercise List</h1> */}
+              {/* <br /> */}
+              <div className="contentbody">
+                <ExerciseList
+                  api={this.props.api}
+                  userID={2}
                 />
               </div>
             </div>
