@@ -40,8 +40,12 @@ public class User {
     private String password;
     @Expose
     private String name;
+    @Expose
     private String dateOfBirth;
+    @Expose
     private String gender;
+    @Expose
     private Long height;
+    @Expose
     private Long weight;
 }
