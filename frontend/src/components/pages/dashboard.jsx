@@ -44,7 +44,9 @@ class Dashboard extends Component {
               {/* <h1>My profile</h1> */}
               {/* <br /> */}
               <div className="contentbody">
-                <Page1 />
+                <Page1 
+                api={this.props.api}
+                exerciseID = {1}/>
               </div>
             </div>
           ) : (

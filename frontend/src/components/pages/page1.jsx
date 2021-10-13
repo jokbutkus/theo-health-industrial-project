@@ -32,9 +32,26 @@ class BusinessMenu extends Component {
 
   constructor(props) {
     super(props);
+    this.state = { exerciseData: null, random: 0, pause: false, leg_element: []};
     this.pausePlay = this.pausePlay.bind(this);
     this.unPausePlay = this.unPausePlay.bind(this);
-    this.state = { random: 0, pause: false, leg_element: []};
+  }
+
+
+  //to use the heatmap data just access it like this "this.state.exerciseData"
+  componentDidMount(){
+    this.findLegs();
+    this.interval = setInterval(() => { this.randomNumber() }, 500);
+
+    this.props.api.get(`/exercise/${this.props.exerciseID}`).then(res=>{
+      this.setState({exerciseData: res.data})
+      console.log(this.state.exerciseData)
+    })
+  }
+
+  componentWillUnmount() {
+    this.setState({leg_element: []});
+    clearInterval(this.interval);
   }
 
   // Play control functions
@@ -99,18 +116,6 @@ class BusinessMenu extends Component {
   //   // console.log(id);
     
   // }
-
-  componentDidMount(){
-    this.findLegs();
-    this.interval = setInterval(() => { this.randomNumber() }, 500);
-    
-  }
-
-  componentWillUnmount() {
-    this.setState({leg_element: []});
-    clearInterval(this.interval);
-  }
-  
 
   changeSelected = (tab) => {
     this.props.changeSelection(tab);

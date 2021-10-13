@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 
+
 const appStates = {
   FrontPage: 1,
   Login: 2,
@@ -8,17 +9,39 @@ const appStates = {
 };
 
 class Login extends Component {
-  state = {
-    correctValue : "athlete1",
-    textValue : "",
-    aSession : ""
-  };
-   myFunction = () => {
-    this.state.textValue = document.getElementById("userID").value;
+
+  constructor(){
+    super();
+
+    this.state = {
+        username: '',
+        password: ''
+    }
+
+    this.setUsername = this.setUsername.bind(this);
+    this.setPassword = this.setPassword.bind(this);
   }
 
-  sessionCookie = (props) => {
-    this.state.aSession = this.props.cookie.username;
+  loginMethod = async() => {
+    let res = await this.props.api.post('/login', { username: this.state.username, password: this.state.password })
+
+    if (res.data.userID!=null) {
+      localStorage.setItem("userID", res.data.userID);
+      localStorage.setItem("role", res.data.role);
+      localStorage.setItem("name", res.data.name);
+      this.props.changeState(appStates.Dashboard);
+    }
+    else {
+      this.setState({username: '', password: ''});
+    }
+  }
+
+  setUsername(event) {
+    this.setState({ username: event.target.value })
+  }
+
+  setPassword(event) {
+    this.setState({ password: event.target.value })
   }
 
   render() {
@@ -33,22 +56,18 @@ class Login extends Component {
             Back
           </button>
         </div>
-
-        <script>{this.sessionCookie()}</script>
-        <h1 class="text-center">{this.state.aSession}</h1>
-
-        <div class="card-header text-center">
-          <input type="text" id="userID"  placeholder="Enter your session name"/>
+        <h1>{this.state.aSession}</h1>
+        <div class="card-header">
+          <input type="text" id="username" placeholder="username" value={this.state.username} onChange={this.setUsername}/>
         </div>
-
+        <div class="card-header">
+          <input type="text" id="password" placeholder="password" value={this.state.password} onChange={this.setPassword}/>
+        </div>
         <div>          
           <button
             class="btn btn-primary"
             onClick={() => {
-              this.myFunction();
-              if (this.state.correctValue === this.state.textValue) {
-                this.props.changeState(appStates.Dashboard);
-              }
+              this.loginMethod(this.state.username, this.state.password);
             }}
             href="#"
           >
@@ -58,5 +77,4 @@ class Login extends Component {
     );
   }
 }
-
 export default Login;
