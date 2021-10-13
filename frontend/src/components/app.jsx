@@ -1,133 +1,178 @@
 import React, { Component } from "react";
 import "../index.css";
 import Login from "./pages/login";
-import LoginForm from "./pages/loginForm"
+import Register from "./pages/register"
+import FrontPage from "./pages/frontPage";
 import Dashboard from "./pages/dashboard";
+import axios from 'axios'
 
+const api = axios.create({
+    baseURL: `http://localhost:8080/`
+})
 
-const appStates = {
-  //npm start
-  //Login: 1, //takes customer/business prop
-  //LoginSuccess: 2, //takes customer/business prop
-  Dashboard: 3,
-};
 
 const athlete1 = {
-  username: "athlete1",
-  usertype: "athlete"
+    username: "athlete1",
+    usertype: "athlete"
 
 };
 
 const athlete2 = {
-  username: "athlete2",
-  usertype: "injuredathlete"
-
+    username: "athlete2",
+    usertype: "injuredathlete"
 };
+
 const athlete3 = {
-  username: "athlete3",
-  usertype: "athlete"
+    username: "athlete3",
+    usertype: "athlete"
 };
 
-const personaltrainer1 = { 
-  username: "personaltrainer1",
-  usertype: "personaltrainer"
+const personaltrainer1 = {
+    username: "personaltrainer1",
+    usertype: "personaltrainer"
 }
 
 
-const physiotherapist1 = { 
-  username: "physiotherapist1",
-  usertype: "physiotherapist"
+const physiotherapist1 = {
+    username: "physiotherapist1",
+    usertype: "physiotherapist"
 }
 
+const appStates = {
+    FrontPage: 1,
+    Login: 2,
+    Register: 3,
+    Dashboard: 4,
+};
 
 
 class App extends Component {
-  state = {
-    appState: appStates.Login,
-    selection: 3,
-  };
 
-  changeState = (s) => this.setState({ appState: s });
-  changeSelection = (s) => this.setState({ selection: s });
-
-  
-
-  render() {
-    const sessionCookie = athlete1;
-    const state = this.state.appState;
-    switch (state) {
-      
-      case appStates.Login:
-        return (
-          <div>
-            <h2></h2>
-            <Login
-              success={false}
-              changeState={this.changeState}
-              appState={this.state.appState}
-              cookie={sessionCookie}
-            />
-          </div>
-        );
-
-      case appStates.LoginSuccess:
-        return (
-          <div>
-            <Login success={true} changeState={this.changeState} appState={this.state.appState}/>
-          </div>
-        );
-        case appStates.Dashboard:
-        switch(sessionCookie.usertype)
-        {
-          case "athlete":
-            return (
-              <div>
-                {sessionCookie.usertype}
-                <Dashboard
-                  selection={this.state.selection}
-                  changeSelection={this.changeSelection}
-                />
-                
-              </div>
-            );
-          case "injuredathlete":
-            return (
-              <div>
-                {sessionCookie.usertype}
-                <Dashboard
-                  selection={this.state.selection}
-                  changeSelection={this.changeSelection}
-                />
-                
-              </div>
-            );
-          case "personaltrainer":
-            return (
-              <div>
-                {sessionCookie.usertype}
-                <Dashboard
-                  selection={this.state.selection}
-                  changeSelection={this.changeSelection}
-                />
-                
-              </div>
-            );
-          case "physiotherapist":
-            return (
-              <div>
-                {sessionCookie.usertype}
-                <Dashboard
-                  selection={this.state.selection}
-                  changeSelection={this.changeSelection}
-                />
-                
-              </div>
-            );
-        }
-      default:
-        return false;
+    constructor() {
+        super();
+        this.loginMethod();
     }
-  }
-}
+    loginMethod = async() => {
+        let res = await api.post('/login', { username: 'username2', password: 'password' })
+        console.log(res)
+        localStorage.setItem("userID", res.data.userID)
+    }
 
-export default App;
+    signupMethod = async() => {
+        let res = await api.post('/signup', { name: 'name', username: 'username1', password: 'password' })
+        console.log(res)
+    }
+
+    profilePage = async() => {
+        let res = await api.get('/user/{id}')
+    }
+
+    state = {
+        appState: appStates.FrontPage,
+        selection: 0,
+    };
+
+    changeState = (s) => this.setState({ appState: s });
+    changeSelection = (s) => this.setState({ selection: s });
+
+
+
+    render() {
+        const sessionCookie = athlete1;
+        const state = this.state.appState;
+        switch (state) {
+
+
+            case appStates.FrontPage:
+                return (
+                    <div>
+                      <h2></h2>
+                      <FrontPage
+                        changeState={this.changeState}
+                        appState={this.state.appState}
+                        cookie={sessionCookie}
+                      />
+                    </div>
+                  );
+          
+                case appStates.Login:
+                  return (
+                    <div>
+                      <h2></h2>
+                      <Login
+                        api={api}
+                        changeState={this.changeState}
+                        appState={this.state.appState}
+                        cookie={sessionCookie}
+                      />
+                    </div>
+                  );
+          
+                  case appStates.Register:
+                  return (
+                    <div>
+                      <h2></h2>
+                      <Register
+                        api={api}
+                        changeState={this.changeState}
+                        appState={this.state.appState}
+                        cookie={sessionCookie}
+                      />
+                    </div>
+                  );
+          
+                  case appStates.Dashboard:
+                  switch(sessionCookie.usertype)
+                  {
+                    case "athlete":
+                      return (
+                        <div>
+                          <Dashboard
+                            api={api}
+                            selection={this.state.selection}
+                            changeSelection={this.changeSelection}
+                          />
+                          
+                        </div>
+                      );
+                    case "injuredathlete":
+                      return (
+                        <div>
+                          {sessionCookie.usertype}
+                          <Dashboard
+                            selection={this.state.selection}
+                            changeSelection={this.changeSelection}
+                          />
+                          
+                        </div>
+                      );
+                    case "personaltrainer":
+                      return (
+                        <div>
+                          {sessionCookie.usertype}
+                          <Dashboard
+                            selection={this.state.selection}
+                            changeSelection={this.changeSelection}
+                          />
+                          
+                        </div>
+                      );
+                    case "physiotherapist":
+                      return (
+                        <div>
+                          {sessionCookie.usertype}
+                          <Dashboard
+                            selection={this.state.selection}
+                            changeSelection={this.changeSelection}
+                          />
+                          
+                        </div>
+                      );
+                  }
+                default:
+                  return false;
+              }
+            }
+          }
+          
+          export default App;

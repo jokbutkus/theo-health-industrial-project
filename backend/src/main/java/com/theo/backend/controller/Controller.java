@@ -24,6 +24,7 @@ import java.util.Optional;
 
 import static com.theo.backend.constants.UserRoleConstants.PHYSIOTHERAPIST_ROLE;
 
+@CrossOrigin(origins = "http://localhost:3000")
 @RestController
 @RequiredArgsConstructor
 public class Controller {
