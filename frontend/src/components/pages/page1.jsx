@@ -35,9 +35,14 @@ const list = [{ id: 0, color: "hue-rotate(95deg) saturate(200%)"},
               { id: 18, color: "hue-rotate(5deg) saturate(200%)"},
               { id: 19, color: "hue-rotate(0deg) saturate(200%)"}];
 
-const list_legs = ["r_left","r_right","q_left","q_right"];
+const list_legs = ["h_left","h_right","q_left","q_right"];
 var curr_time = "";
 var max_time = "";
+var sensor1Data = "";
+var sensor2Data = "";
+var sensor3Data = "";
+var sensor4Data = "";
+
 
 // Store all individual muscle images to a list on load - to not repeat a search.
 // Iterate 4 times each loop (second) to generate 4 different random numbers
@@ -162,6 +167,16 @@ class BusinessMenu extends Component {
               temp_find = list.find(l_elem => l_elem.id === 19);
             }
 
+            if (i === 0){
+              sensor1Data = sensor1.toString()+ " - " + (Math.round((sensor1 / 1024)*100).toString()) + "%" ;
+            } else if (i === 1){
+              sensor2Data = sensor2.toString()+ " - " + (Math.round((sensor2 / 1024)*100).toString()) + "%" ;
+            } else if (i === 2){
+              sensor3Data = sensor3.toString()+ " - " + (Math.round((sensor3 / 1024)*100).toString()) + "%" ;
+            } else if (i === 3){
+              sensor4Data = sensor4.toString()+ " - " + (Math.round((sensor4 / 1024)*100).toString()) + "%" ;
+            }
+
             curr_time = this.fixTime(time);
             // console.log(temp_find);
 
@@ -202,17 +217,24 @@ class BusinessMenu extends Component {
         <div className='image-container'>
           <div className="frontLegs">
             <img class='image_BG legs' alt='frontBG' src={front_BG} />
-            <img class='front q_right legs' id="q_right" alt='Right_Q' src={R_Q} />
-            <img class='front q_left legs' id="q_left" alt='Left_Q' src={L_Q} />
+            <img class='front q_left legs' id="q_left" alt='Left_Q' src={R_Q} />
+            <img class='front q_right legs' id="q_right" alt='Right_Q' src={L_Q} />
           </div>
           <div className="backLegs">
             <img class='legs image_BG' alt='back_BG' src={back_BG} />
-            <img class='back r_right legs' id="r_right" alt='Right_H' src={R_H} />
-            <img class='back r_left legs' id="r_left" alt='Left_H' src={L_H} />
+            <img class='back h_left legs' id="h_left" alt='Left_H' src={R_H} />
+            <img class='back h_right legs' id="h_right" alt='Right_H' src={L_H} />
 
           </div>
         </div>
         <div className="timeControl">
+          <div className="dataContainer">
+            <div className="q_r dataText" > Left Quadricep <br></br> {sensor3Data}</div>
+            <div className="q_l dataText"> Right Quadricep <br></br> {sensor4Data} </div>
+            <div className="h_r dataText"> Left Hamstring <br></br> {sensor1Data} </div>
+            <div className="h_l dataText"> Right Hamstring <br></br> {sensor2Data} </div>
+
+          </div>
           <div className="buttonContainer">
             <button class='heatmapbutton'  onClick={this.pausePlay}>Pause</button>
             <button class='heatmapbutton'  onClick={this.unPausePlay}>Play</button>

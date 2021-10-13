@@ -3,9 +3,11 @@
 .image-container {
     display:flex;
     padding-left: 5%;
-    padding-right: 10%;
+    padding-right: 5%;
     height: 50vh;
-    width: 107vh;
+    width: 57vw;
+    justify-content: center;
+    align-content: center;   
     /* position: static; */
 }
 
@@ -36,8 +38,8 @@
 
 .legs {
     /* adjustable to fit better at final stages VH is Viewpoint height */
-    width: 45vh;
-    height: 50vh;
+    width: 45%;
+    height: 45vh;
 }
 
 .nonAthleteMenu {
@@ -52,15 +54,15 @@
     background-color: #fc9154;
     border-radius: 15px;
     border-color: black;
-    font-size: x-large;
+    font-size: 2vh;
 }
 
 .buttonContainer{
     flex:1;
     height:20%;
     display: flex;
-    margin-top: 2%;
-    width: 100%;
+    margin-top: 0;
+    width: 55vw;
     justify-content: center;
     align-content: center;
     
@@ -73,17 +75,33 @@
     flex-direction: row;
     justify-content: center;
     align-content: center;
-    width: 100%;
+    width: 55vw;
 }
 
 .timeControl {
-    width: 100vh;
+    width: 58vw;
     height: 20vh;
     display:flex;
     flex-direction: column;
     justify-content: center;
-    align-content: center;
-    
+    align-content: center;   
+}
+
+.dataContainer {
+    flex:1;
+    display: flex;
+    justify-content: center;
+    align-content: center;  
+}
+
+.dataText {
+    /* word-break: normal; */
+    white-space: pre-line;
+    width: auto;
+    margin: 0 4px;
+    flex: 1;
+    text-align: center;
+    /* color: blueviolet; */
 }
 
 
