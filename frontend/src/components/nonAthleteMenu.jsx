@@ -23,7 +23,7 @@ class  NonAthleteMenu extends Component {
               } 
               onClick={() => this.changeSelected(0)}
             > 
-              My Profile
+              Heatmap
             </a>
           </li>
           <li class={"d-grid col-4"}>
@@ -48,6 +48,26 @@ class  NonAthleteMenu extends Component {
               onClick={() => this.changeSelected(2)}
             >
               Add Clients
+            </a>
+            <a
+              href="#"
+              class={
+                "text-center nav-link sidebutton" +
+                (this.props.selection === 3 ? " active" : "")
+              }
+              onClick={() => this.changeSelected(3)}
+            >
+              Profile page
+            </a>
+            <a
+              href="#"
+              class={
+                "text-center nav-link sidebutton" +
+                (this.props.selection === 4 ? " active" : "")
+              }
+              onClick={() => this.changeSelected(4)}
+            >
+              Exercise List
             </a>
           </li>
         </ul>
