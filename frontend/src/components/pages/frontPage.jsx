@@ -13,7 +13,7 @@ class FrontPage extends React.Component {
     render() { 
         return (
           <div class="contentbody" style={{border:"0"}}>
-            <div class="row justify-content-center">
+            <div class="row justify-content-left">
               <div class="col-3">
                 <button class="button" style={{borderStyle:"solid", borderRadius:"100px"}} onClick={() => this.props.changeState(appStates.Login)}>
                   Login
