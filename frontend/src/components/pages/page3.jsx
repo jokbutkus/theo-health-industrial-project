@@ -26,7 +26,6 @@ class Page3 extends Component {
       name: this.state.name,
       username: this.state.username,
       password: this.state.password,
-      password: this.state.password,
       dateOfBirth: this.state.dateOfBirth,
       gender: this.state.gender,
       height: this.state.height,
@@ -92,6 +91,7 @@ class Page3 extends Component {
       height: this.state.height, 
     })
     if(res.data.userID != null) alert(`User created ${res.data.name} succcesfully`);
+    else alert(`User couldnt be created`);
 
   }
 
