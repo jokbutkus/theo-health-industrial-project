@@ -20,9 +20,8 @@ class Dashboard extends Component {
 
   render() {
     return (
-
       <div>
-        <h1>Business</h1>
+        <h1>Client</h1>
         <img class="backgroundpic" alt="theobackgroundpic" style={{ margin: "10px 0px" }} src={theobackground} />
         <div class="topbanner"></div>
         <div>

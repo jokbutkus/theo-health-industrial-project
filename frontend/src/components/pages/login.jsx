@@ -6,16 +6,19 @@ const appStates = {
   Login: 2,
   Register: 3,
   Dashboard: 4,
+  UserDashboard: 5
 };
 
 class Login extends Component {
-
+  state = {isClient: false};
+  
   constructor(){
     super();
 
     this.state = {
         username: '',
-        password: ''
+        password: '',
+        
     }
 
     this.setUsername = this.setUsername.bind(this);
@@ -24,12 +27,24 @@ class Login extends Component {
 
   loginMethod = async() => {
     let res = await this.props.api.post('/login', { username: this.state.username, password: this.state.password })
+    console.log(res.data)
 
     if (res.data.userID!=null) {
+      //if (localStorage.getItem("role") === "trainer" || localStorage.getItem("role") === "physiopherapist") {
       localStorage.setItem("userID", res.data.userID);
       localStorage.setItem("role", res.data.role);
       localStorage.setItem("name", res.data.name);
       this.props.changeState(appStates.Dashboard);
+      
+    
+      
+      // if (localStorage.getItem("role") === "trainer" || localStorage.getItem("role") === "physiopherapist") {
+      //   this.props.changeState(appStates.Dashboard);
+      //   console.log("sio");
+      // }
+      // if (localStorage.getItem("role") === "trainer" || localStorage.getItem("role") === "physiopherapist") {
+      //   this.props.changeState(appStates.UserDashboard);
+      // }
     }
     else {
       this.setState({username: '', password: ''});

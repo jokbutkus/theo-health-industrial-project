@@ -4,6 +4,7 @@ import Login from "./pages/login";
 import Register from "./pages/register"
 import FrontPage from "./pages/frontPage";
 import Dashboard from "./pages/dashboard";
+import UserDashboard from "./pages/userDashboard";
 import axios from 'axios'
 
 const api = axios.create({
@@ -43,6 +44,7 @@ const appStates = {
     Login: 2,
     Register: 3,
     Dashboard: 4,
+    UserDashboard: 5
 };
 
 
@@ -117,6 +119,18 @@ class App extends Component {
                         changeState={this.changeState}
                         appState={this.state.appState}
                         cookie={sessionCookie}
+                      />
+                    </div>
+                  );
+
+                  case appStates.UserDashboard:
+                  return (
+                    <div>
+                      <h2></h2>
+                      <UserDashboard
+                        api={api}
+                        selection={this.state.selection}
+                        changeSelection={this.changeSelection}
                       />
                     </div>
                   );

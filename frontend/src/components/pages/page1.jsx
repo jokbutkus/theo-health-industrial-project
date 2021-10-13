@@ -59,8 +59,9 @@ class BusinessMenu extends Component {
 
     this.props.api.get(`/exercise/${this.props.exerciseID}`).then(res=>{
       this.setState({exerciseData: res.data})
-      console.log(this.state.exerciseData)
+      
       this.setState({currentID: this.state.exerciseData[0].recordingDataID});
+      console.log(this.state.exerciseData);
       this.setState({maxID: this.state.exerciseData[(this.state.exerciseData.length - 1)].recordingDataID});
       console.log(this.state.currentID);
       console.log(this.state.maxID);
