@@ -4,6 +4,43 @@ import "bootstrap/dist/css/bootstrap.css";
 import profilepic from '../images/profilepic.jpg';
 
 class Page3 extends Component {
+
+  constructor() {
+    super();
+
+    this.state = {
+      name: '',
+      username: '',
+      password: '',
+      dateOfBirth: '',
+      gender: '',
+      height: '',
+      weight: '',
+      User: [],
+    }
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+  signUpMethod = async () => {
+    let res = await this.props.api.post('/signup', {
+      name: this.state.name,
+      username: this.state.username,
+      password: this.state.password,
+      password: this.state.password,
+      dateOfBirth: this.state.dateOfBirth,
+      gender: this.state.gender,
+      height: this.state.height,
+      weight: this.state.weight,
+    })
+
+    console.log(res.data)
+    // if (res.data.userID != null) {
+    // this.props.changeState(appStates.Dashboard);
+    // }
+    // else {
+    //   this.setState({ name: '', username: '', password: '', failed: true });
+    // }
+  }
   state = {
     menuSelection: 0,
     nameOfItem: "",
@@ -44,6 +81,20 @@ class Page3 extends Component {
     allowSubmit: true
   };
 
+  handleSubmit = async () =>{
+    let res = await this.props.api.post('/athlete-signup', { 
+      name: this.state.name, 
+      username: this.state.username, 
+      password: this.state.password,
+      dateOfBirth: this.state.dateOfBirth,
+      gender: this.state.gender,
+      weight: this.state.weight, 
+      height: this.state.height, 
+    })
+    if(res.data.userID != null) alert(`User created ${res.data.name} succcesfully`);
+
+  }
+
   handleChange = (event) => {
     // this.setState.User({Username : Event.target.value});
     console.log(event.target.name);
@@ -60,59 +111,34 @@ class Page3 extends Component {
     });
   };
 
-  handleSubmit = () => {
-    
-    if (this.state.name == "" || !this.state.name.replace(/\s/g, '').length) {
-      alert("Please enter client's name!");
-      this.state.allowSubmit = false;
-    }
-    else if(this.state.DOB == "") 
-    {
-      alert('you have not entered a date of birth!');
-    }
-    else if (this.state.Gender == "" || !this.state.Gender.replace(/\s/g, '').length) {
-      alert("Please enter client's gender!");
-      this.state.allowSubmit = false;
-    }
-    else if (this.state.Height == "" || !this.state.Height.replace(/\s/g, '').length) {
-      alert("Please enter client's height!");
-      this.state.allowSubmit = false;
-    }
-    else if (this.state.Weight == "" || !this.state.Weight.replace(/\s/g, '').length) {
-      alert("Please enter client's weight!");
-      this.state.allowSubmit = false;
-    } else {
-      this.state.allowSubmit = true;
-    }
-
-    if (this.state.allowSubmit == true){
-      this.setState({
-        User: [
-          ...this.state.User,
-          {
-            id: this.state.User.length + 1,
-            Username: this.state.name,
-            DOB: this.state.DOB,
-            Gender: this.state.Gender,
-            Height: this.state.Height,
-            Weight: this.state.Weight,
-          },
-        ],
-      });
-    }
-    alert(this.state.allowSubmit);
-    
-  };
-
   changeSelected = (tab) => {
     this.props.changeSelection(tab);
   };
+
 
   render() {
     return (
       <div class="">
         <h3>add a person</h3>
         <div class="container">
+        <div class="row">
+            <input
+              placeholder="Username"
+              class="form-control"
+              name="username"
+              type="text"
+              onChange={this.handleChange}
+            />
+          </div>
+          <div class="row">
+            <input
+              placeholder="Password"
+              class="form-control"
+              name="password"
+              type="text"
+              onChange={this.handleChange}
+            />
+          </div>
           <div class="row">
             <input
               placeholder="Name"
@@ -126,7 +152,7 @@ class Page3 extends Component {
             <input
               placeholder="DOB"
               class="form-control"
-              name="DOB"
+              name="dateOfBirth"
               type="date"
               onChange={this.handleChange}
             />
@@ -135,7 +161,7 @@ class Page3 extends Component {
             <input
               placeholder="Gender"
               class="form-control"
-              name="Gender"
+              name="gender"
               type="text"
               onChange={this.handleChange}
             />
@@ -144,7 +170,7 @@ class Page3 extends Component {
             <input
               placeholder="Height"
               class="form-control"
-              name="Height"
+              name="height"
               type="text"
               onChange={this.handleChange}
             />
@@ -153,7 +179,7 @@ class Page3 extends Component {
             <input
               placeholder="Weight"
               class="form-control"
-              name="Weight"
+              name="weight"
               type="text"
               onChange={this.handleChange}
             />
