@@ -2,6 +2,7 @@ package com.theo.backend.controller;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.theo.backend.json.request.AthleteSignupRequest;
 import com.theo.backend.json.request.LoginRequest;
 import com.theo.backend.json.request.SignupRequest;
 import com.theo.backend.json.response.LoginResponse;
@@ -133,7 +134,7 @@ public class Controller {
     }
 
     @PostMapping("/athlete-signup")
-    public LoginResponse athleteSignup(@RequestBody final SignupRequest signupRequest) {
+    public LoginResponse athleteSignup(@RequestBody final AthleteSignupRequest signupRequest) {
         if (!userRoleRepository.existsByName(ATHLETE_ROLE)) {
             saveUserRoleWithName(ATHLETE_ROLE);
         }
@@ -145,10 +146,27 @@ public class Controller {
                 .password(signupRequest.getPassword())
                 .name(signupRequest.getName())
                 .role(userRole)
+                .dateOfBirth(signupRequest.getDateOfBirth())
+                .gender(signupRequest.getGender())
+                .height(signupRequest.getHeight())
+                .weight(signupRequest.getWeight())
                 .build();
 
-        final User newUser = userRepository.save(user);
-        return buildLoginResponse(newUser);
+        final Optional<User> staffUserOptional = userRepository.findById(signupRequest.getStaffId());
+        if (staffUserOptional.isPresent()) {
+            final User staffUser = staffUserOptional.get();
+            final User athleteUser = userRepository.save(user);
+
+            final AthleteStaff athleteStaff = AthleteStaff.builder()
+                    .staff(staffUser)
+                    .athlete(athleteUser)
+                    .build();
+            athleteStaffRepository.save(athleteStaff);
+
+            return buildLoginResponse(athleteUser);
+        }
+
+        return null;
     }
 
     private void saveUserRoleWithName(final String userRoleName) {

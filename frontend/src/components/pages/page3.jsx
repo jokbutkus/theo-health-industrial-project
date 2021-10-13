@@ -81,7 +81,8 @@ class Page3 extends Component {
   };
 
   handleSubmit = async () =>{
-    let res = await this.props.api.post('/athlete-signup', { 
+    let res = await this.props.api.post('/athlete-signup', {
+      staffId: localStorage.getItem("userID"),
       name: this.state.name, 
       username: this.state.username, 
       password: this.state.password,
