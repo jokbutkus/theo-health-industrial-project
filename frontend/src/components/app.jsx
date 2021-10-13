@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "../index.css";
 import Login from "./pages/login";
+import ClientLogin from "./pages/clientLogin";
 import Register from "./pages/register"
 import FrontPage from "./pages/frontPage";
 import Dashboard from "./pages/dashboard";
@@ -40,11 +41,12 @@ const physiotherapist1 = {
 }
 
 const appStates = {
-    FrontPage: 1,
-    Login: 2,
-    Register: 3,
-    Dashboard: 4,
-    UserDashboard: 5
+  FrontPage: 1,
+  Login: 2,
+  ClientLogin: 3,
+  Register: 4,
+  Dashboard: 5,
+  UserDashboard: 6,
 };
 
 
@@ -110,6 +112,19 @@ class App extends Component {
                     </div>
                   );
           
+                  case appStates.ClientLogin:
+                    return (
+                      <div>
+                        <h2></h2>
+                        <ClientLogin
+                          api={api}
+                          changeState={this.changeState}
+                          appState={this.state.appState}
+                          cookie={sessionCookie}
+                        />
+                      </div>
+                    );
+
                   case appStates.Register:
                   return (
                     <div>

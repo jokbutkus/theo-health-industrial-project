@@ -5,8 +5,9 @@ import '../css/frontpage.css';
 const appStates = {
     FrontPage: 1,
     Login: 2,
-    Register: 3,
-    Dashboard: 4,
+    ClientLogin: 3,
+    Register: 4,
+    Dashboard: 5,
   };
 
 class FrontPage extends React.Component {
@@ -14,13 +15,19 @@ class FrontPage extends React.Component {
         return (
           <div class="contentbody" style={{border:"0"}}>
             <div class="row justify-content-left">
-              <div class="col-3">
+              <div class="col-4">
                 <button class="button" style={{borderStyle:"solid", borderRadius:"100px"}} onClick={() => this.props.changeState(appStates.Login)}>
-                  Login
+                  Business Login
                 </button>
               </div>
 
-              <div class="col-3">
+              <div class="col-4">
+                <button class="button" style={{borderStyle:"solid", borderRadius:"100px"}} onClick={() => this.props.changeState(appStates.ClientLogin)}>
+                  Client Login
+                </button>
+              </div>
+
+              <div class="col-4">
                 <button class="button" style={{borderStyle:"solid", borderRadius:"100px"}} onClick={() => this.props.changeState(appStates.Register)}>
                   Sign Up
                 </button>

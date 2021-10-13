@@ -4,6 +4,7 @@ import "bootstrap/dist/css/bootstrap.css";
 import profilepic from '../images/profilepic.jpg';
 import UserInformation from "./userInformation";
 import '../css/main.css';
+import Page1 from "./page1";
 
 const appStates = {
   NotSelected : 1,
@@ -77,29 +78,60 @@ class Page2 extends Component {
               {this.state.User.map((user, index) => (
                 <div key={index} class="row">
                   <img
-                    style={{ maxHeight: 100, maxWidth: 100}}
+                    style={{ maxHeight: 100, maxWidth: 100 }}
                     src={profilepic}
                     alt=""
                     class="row m-2"
                   />
                   <div>
-                    <input class="col m-2" type="text" readonly value={user.athlete.username} />
+                    <input
+                      class="col m-2"
+                      type="text"
+                      readonly
+                      value={user.athlete.username}
+                    />
                   </div>
                   <div>
-                    <input class="col m-2" type="text" value={user.athlete.name} />
+                    <input
+                      class="col m-2"
+                      type="text"
+                      value={user.athlete.name}
+                    />
                   </div>
-                  <div 
-                  style={{ display: this.state.show ? "block" : "none" }}
-                  class="row m-2">
-                    <div class='infocontainer'>
-                    <input class="forminfo" type="text" value={user.athlete.dateOfBirth} />
-                    <input class="forminfo" type="text" value={user.athlete.gender} />
-                    <input class="forminfo" type="text" value={user.athlete.weight} />
-                    <input class="forminfo" type="text" value={user.athlete.height} />
+                  <div
+                    style={{ display: this.state.show ? "block" : "none" }}
+                    class="row m-2"
+                  >
+                    <div class="infocontainer">
+                      <input
+                        class="forminfo"
+                        type="text"
+                        value={user.athlete.dateOfBirth}
+                      />
+                      <input
+                        class="forminfo"
+                        type="text"
+                        value={user.athlete.gender}
+                      />
+                      <input
+                        class="forminfo"
+                        type="text"
+                        value={user.athlete.weight}
+                      />
+                      <input
+                        class="forminfo"
+                        type="text"
+                        value={user.athlete.height}
+                      />
+                      <div class="row">
+                        <div className="contentbody">
+                          <Page1 api={this.props.api} exerciseID={1} />
+                        </div>
+                      </div>
                     </div>
                   </div>
                   <div class="col-3">
-                  <button
+                    <button
                       name={"User"}
                       id={user.id}
                       class="btn btn-secondary bg-primary m-1"
@@ -108,7 +140,6 @@ class Page2 extends Component {
                     >
                       Display Client's Information
                     </button>
-
                   </div>
                   <br />
                   <br />

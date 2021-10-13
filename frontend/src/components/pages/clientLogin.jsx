@@ -35,7 +35,7 @@ class Login extends Component {
       localStorage.setItem("userID", res.data.userID);
       localStorage.setItem("role", res.data.role);
       localStorage.setItem("name", res.data.name);
-      this.props.changeState(appStates.Dashboard);
+      this.props.changeState(appStates.UserDashboard);
       
     
       
@@ -75,7 +75,7 @@ class Login extends Component {
         <h1>{this.state.aSession}</h1>
         
         <div class="container">
-          <h1 class="card-title" style={{ color: "#f36d21"}}>Login</h1>
+          <h1 class="card-title" style={{ color: "#f36d21"}}>Client Login</h1>
         </div>
 
         <div class="input-group mb-3 d-flex justify-content-center">
