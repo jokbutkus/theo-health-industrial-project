@@ -49,6 +49,16 @@ class  NonAthleteMenu extends Component {
             >
               Add Clients
             </a>
+            <a
+              href="#"
+              class={
+                "text-center nav-link sidebutton" +
+                (this.props.selection === 3 ? " active" : "")
+              }
+              onClick={() => this.changeSelected(3)}
+            >
+              Profile page
+            </a>
           </li>
         </ul>
       </div>

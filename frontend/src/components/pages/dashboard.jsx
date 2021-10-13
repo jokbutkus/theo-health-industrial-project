@@ -5,6 +5,7 @@ import ExampleImage from "../assets/ExampleImageAnatomy.PNG";
 import Page1 from "./page1";
 import Page2 from "./page2";
 import Page3 from "./page3";
+import UserProfile from "./userProfile";
 import "../css/main.css";
 import profilepic from "../images/profilepic.jpg";
 import theobackground from "../images/theobackground.jpg";
@@ -18,7 +19,7 @@ class Dashboard extends Component {
 
   render() {
     return (
-      
+
       <div>
         <img class="backgroundpic" alt="theobackgroundpic" style={{ margin: "10px 0px" }} src={theobackground} />
         <div class="topbanner"></div>
@@ -26,13 +27,13 @@ class Dashboard extends Component {
           <div class="sidebar">
             <div className="info">
               <img class="profilepic" alt="profilepicture" style={{ margin: "10px 0px" }} src={profilepic} />
-              <h1 style={{ color: "white"}}>Name</h1>
-              <h4 style={{ color: "white"}}>Job role</h4>
+              <h1 style={{ color: "white" }}>Name</h1>
+              <h4 style={{ color: "white" }}>Job role</h4>
               <NonAthleteMenu
                 selection={this.props.selection}
                 changeSelection={this.props.changeSelection}
               />
-              </div>
+            </div>
           </div>
         </div>
 
@@ -44,9 +45,9 @@ class Dashboard extends Component {
               {/* <h1>My profile</h1> */}
               {/* <br /> */}
               <div className="contentbody">
-                <Page1 
+                <Page1
                   api={this.props.api}
-                  exerciseID = {1}/>
+                  exerciseID={1} />
               </div>
             </div>
           ) : (
@@ -57,8 +58,8 @@ class Dashboard extends Component {
               {/* <h1>My Clients</h1> */}
               <br />
               <div className="contentbody">
-                <Page2 
-                  api={this.props.api} 
+                <Page2
+                  api={this.props.api}
                 />
               </div>
             </div>
@@ -70,8 +71,21 @@ class Dashboard extends Component {
               {/* <h1>Add Clients</h1> */}
               <br />
               <div className="contentbody">
-                <Page3 
-                  api={this.props.api} 
+                <Page3
+                  api={this.props.api}
+                />
+              </div>
+            </div>
+          ) : (
+            ""
+          )}
+          {this.props.selection === 3 ? (
+            <div>
+              {/* <h1>Profile Page</h1> */}
+              {/* <br /> */}
+              <div className="contentbody">
+                <UserProfile
+                  api={this.props.api}
                 />
               </div>
             </div>
