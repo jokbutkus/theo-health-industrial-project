@@ -45,8 +45,8 @@ class Dashboard extends Component {
               {/* <br /> */}
               <div className="contentbody">
                 <Page1 
-                api={this.props.api}
-                exerciseID = {1}/>
+                  api={this.props.api}
+                  exerciseID = {1}/>
               </div>
             </div>
           ) : (
@@ -57,7 +57,9 @@ class Dashboard extends Component {
               {/* <h1>My Clients</h1> */}
               <br />
               <div className="contentbody">
-                <Page2 />
+                <Page2 
+                  api={this.props.api} 
+                />
               </div>
             </div>
           ) : (
@@ -68,7 +70,9 @@ class Dashboard extends Component {
               {/* <h1>Add Clients</h1> */}
               <br />
               <div className="contentbody">
-                <Page3 />
+                <Page3 
+                  api={this.props.api} 
+                />
               </div>
             </div>
           ) : (

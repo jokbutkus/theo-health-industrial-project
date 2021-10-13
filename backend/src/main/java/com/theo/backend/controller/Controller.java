@@ -22,6 +22,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 
+import static com.theo.backend.constants.UserRoleConstants.ATHLETE_ROLE;
 import static com.theo.backend.constants.UserRoleConstants.PHYSIOTHERAPIST_ROLE;
 
 @CrossOrigin(origins = "http://localhost:3000")
@@ -126,6 +127,25 @@ public class Controller {
             saveUserRoleWithName(PHYSIOTHERAPIST_ROLE);
         }
         final UserRole userRole = userRoleRepository.findByName(PHYSIOTHERAPIST_ROLE)
+                .orElse(null);
+
+        final User user = User.builder()
+                .username(signupRequest.getUsername())
+                .password(signupRequest.getPassword())
+                .name(signupRequest.getName())
+                .role(userRole)
+                .build();
+
+        final User newUser = userRepository.save(user);
+        return buildLoginResponse(newUser);
+    }
+
+    @PostMapping("/athlete-signup")
+    public LoginResponse athleteSignup(@RequestBody final SignupRequest signupRequest) {
+        if (!userRoleRepository.existsByName(ATHLETE_ROLE)) {
+            saveUserRoleWithName(ATHLETE_ROLE);
+        }
+        final UserRole userRole = userRoleRepository.findByName(ATHLETE_ROLE)
                 .orElse(null);
 
         final User user = User.builder()
