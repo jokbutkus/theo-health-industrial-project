@@ -3,6 +3,7 @@ import "../../index.css";
 import "bootstrap/dist/css/bootstrap.css";
 import profilepic from '../images/profilepic.jpg';
 import UserInformation from "./userInformation";
+import '../css/main.css';
 
 const appStates = {
   NotSelected : 1,
@@ -67,13 +68,12 @@ class Page2 extends Component {
       case appStates.NotSelected:
         return (
           <div>
-            <h1>{__filename}</h1>
             <form>
               <h2>Clients</h2>
               {this.state.User.map((user, index) => (
                 <div key={index} class="row">
                   <img
-                    style={{ maxHeight: 100, maxWidth: 100 }}
+                    style={{ maxHeight: 100, maxWidth: 100}}
                     src={profilepic}
                     alt=""
                     class="row m-2"
@@ -84,10 +84,12 @@ class Page2 extends Component {
                   <div 
                   style={{ display: this.state.show ? "block" : "none" }}
                   class="row m-2">
-                    <input class="" type="text" value={user.DOB} />
-                    <input class="" type="text" value={user.Gender} />
-                    <input class="" type="text" value={user.Height} />
-                    <input class="" type="text" value={user.Weight} />
+                    <div class='infocontainer'>
+                    <input class="forminfo" type="text" value={user.DOB} />
+                    <input class="forminfo" type="text" value={user.Gender} />
+                    <input class="forminfo" type="text" value={user.Height} />
+                    <input class="forminfo" type="text" value={user.Weight} />
+                    </div>
                     <button
                       name={"User"}
                       id={user.id}
@@ -103,7 +105,7 @@ class Page2 extends Component {
                   <button
                       name={"User"}
                       id={user.id}
-                      class="btn btn-secondary bg-primary m-2"
+                      class="btn btn-secondary bg-primary m-1"
                       type="button"
                       onClick={toggleShow}
                     >
