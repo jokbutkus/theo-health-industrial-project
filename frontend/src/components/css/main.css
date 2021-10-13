@@ -8,6 +8,7 @@
 
 .profilepic {
     width: 100px;
+    border-radius: 50%;
 }
 
 .clientpic {
@@ -21,6 +22,7 @@
     width: 23vh;
     height: 7vh;
     border-color: white;
+    font-size: x-large;
     /* display:inline; */
     /* padding: 0; */
     /* display: block; */
@@ -64,7 +66,8 @@
 
 .contentbody {
   top: 15%;
-  border-style: solid;
+  padding: 20px 10px 20px 10px;
+  border: 3px solid black;
   border-radius: 25px;
   height: auto;
   width: 110vh;
@@ -74,13 +77,33 @@
   position: absolute;
 }
 
-.mainpage {
-    /* background-color: cyan; */
-}
-
 .sidebar {
     z-index:1;
     position: fixed;
     top: 8%;
     height:100%;
+    border-right:2px solid black;
+    border-top:1px solid black;
+
+}
+
+.backgroundpic{
+    position:fixed;
+    width: 70%;
+    height: 100%;
+    left: 30%;
+    filter: contrast(0.5)
+}
+
+
+
+.infocontainer{
+    flex:2;
+    display:flex;
+    flex-direction: column;
+    width: 40%;
+}
+
+.forminfo {
+    margin: 2px 0;
 }

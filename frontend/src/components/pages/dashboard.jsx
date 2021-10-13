@@ -7,6 +7,7 @@ import Page2 from "./page2";
 import Page3 from "./page3";
 import "../css/main.css";
 import profilepic from "../images/profilepic.jpg";
+import theobackground from "../images/theobackground.jpg";
 
 class Dashboard extends Component {
   state = {};
@@ -17,19 +18,21 @@ class Dashboard extends Component {
 
   render() {
     return (
+      
       <div>
+        <img class="backgroundpic" alt="theobackgroundpic" style={{ margin: "10px 0px" }} src={theobackground} />
         <div class="topbanner"></div>
         <div>
           <div class="sidebar">
             <div className="info">
-              <img class="profilepic" alt="profilepicture" src={profilepic} />
-              <h1>Name</h1>
-              <h3>Job role</h3>
+              <img class="profilepic" alt="profilepicture" style={{ margin: "10px 0px" }} src={profilepic} />
+              <h1 style={{ color: "white"}}>Name</h1>
+              <h4 style={{ color: "white"}}>Job role</h4>
               <NonAthleteMenu
                 selection={this.props.selection}
                 changeSelection={this.props.changeSelection}
               />
-            </div>
+              </div>
           </div>
         </div>
 

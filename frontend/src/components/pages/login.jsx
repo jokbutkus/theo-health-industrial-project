@@ -46,12 +46,12 @@ class Login extends Component {
 
   render() {
     return (
-      <div class="card text-center">
-        <div>
+      <div class="container">
+        <div class="btn btn-outline-primary">
           <button
             onClick={() => this.props.changeState(appStates.FrontPage)}
             type="submit"
-            class="btn btn-primary"
+            class="btn"
           >
             Back
           </button>
