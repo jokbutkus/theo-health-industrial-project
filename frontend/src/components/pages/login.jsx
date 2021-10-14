@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import "../css/login.css";
+import logo from '../images/Logo_1.png';
 
 
 const appStates = {
@@ -45,59 +47,39 @@ class Login extends Component {
 
   render() {
     return (
+      <>
+      <div class="box"></div>
+      <div class="theologo">
+            <img class='theologoimage' alt='theologo' src={logo} />
+      </div>
+      <div class="login-body">
       <div class="container">
-        <div class="btn btn-outline-primary">
-          <button
-            onClick={() => this.props.changeState(appStates.FrontPage)}
-            type="submit"
-            class="btn"
-          >
-            Back
-          </button>
-        </div>
-        <h1>{this.state.aSession}</h1>
         
-        <div class="container">
-          <h1 class="card-title" style={{ color: "#f36d21"}}>Login</h1>
+        <div class='d-flex justify-content-center'>
+          <h1 class="card-title" style={{ fontSize: "5vh", color: "#000000", marginBottom: "15px" }}>Welcome</h1>
         </div>
 
-        <div class="input-group mb-3 d-flex justify-content-center">
-          <div class="input-group-prepend">
-            <span class="input-group-text" style={{ borderColor: "ButtonShadow", marginRight: "5px" }}>Uesrname: </span>
-          </div>
-            <input style={{ borderRadius: "25px", padding: "3.5px 15px"}} type="text" id="username" placeholder="username" value={this.state.username} onChange={this.setUsername}/>
+        <div class="input-group mb-2 d-flex justify-content-center">
+            <input  class="login" type="text" id="username" placeholder="username" value={this.state.username} onChange={this.setUsername}/>
         </div>
 
-        <div class="input-group mb-3 d-flex justify-content-center">
-          <div class="input-group-prepend">
-            <span class="input-group-text" style={{ borderColor: "ButtonShadow", marginRight: "9px" }}>Password: </span>
-          </div>
-            <input style={{ borderRadius: "25px", padding: "3.5px 15px"}} type="text" id="password" placeholder="password" value={this.state.password} onChange={this.setPassword}/>
+        <div class="input-group mb-2 d-flex justify-content-center">
+            <input class="login" type="text" id="password" placeholder="password" value={this.state.password} onChange={this.setPassword}/>
         </div>
 
-        <div>          
-          <button
-            class="btn btn-primary"
-            style={{
-              borderRadius: "25px",
-              padding: "10px 25px",
-              borderRadius: "50px",
-              margin: "10px 0 0 0",
-              position: "relative",
-              float: "right",
-              left: "-50%",
-              textAlign: "left"
-            }}
-
-            onClick={() => {
-              this.loginMethod(this.state.username, this.state.password);
-            }}
-            href="#"
-            >
+        <div class="d-flex justify-content-center">     
+          <button class="button" onClick={() => {this.loginMethod(this.state.username, this.state.password);}}href="#">
             Login
           </button>
         </div>
+        <div class="d-flex justify-content-center">
+          <button class="button-2" onClick={() => this.props.changeState(appStates.FrontPage)}>
+            Back
+          </button>
+        </div>
+        </div>
       </div>
+      </>
     );
   }
 }
