@@ -61,6 +61,8 @@ class Dashboard extends Component {
               <div className="contentbody">
                 <ClientList
                   api={this.props.api}
+                  userID={2}
+                  exerciseID={1}
                 />
               </div>
             </div>
