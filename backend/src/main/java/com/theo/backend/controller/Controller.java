@@ -43,19 +43,20 @@ public class Controller {
         final Optional<User> user = userRepository.findById(id);
         if (!user.isPresent()) return null;
         else return Optional.ofNullable(user)
+                .map(Optional::get)
                 .map(this::buildUserResponse)
                 .orElse(null);
     }
 
-    private UserResponse buildUserResponse(final Optional<User> user) {
+    private UserResponse buildUserResponse(final User user) {
         return UserResponse.builder()
-                .userID(user.get().getId())
-                .username(user.get().getUsername())
-                .name(user.get().getName())
-                .gender(user.get().getGender())
-                .dateOfBirth(user.get().getDateOfBirth())
-                .height(user.get().getHeight())
-                .weight(user.get().getWeight())
+                .userID(user.getId())
+                .username(user.getUsername())
+                .name(user.getName())
+                .gender(user.getGender())
+                .dateOfBirth(user.getDateOfBirth())
+                .height(user.getHeight())
+                .weight(user.getWeight())
                 .build();
     }
 
