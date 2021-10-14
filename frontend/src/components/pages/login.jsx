@@ -47,9 +47,9 @@ class Login extends Component {
   render() {
     return (
       <div>
-          <img src={logo} style={{position: "relative", top: "50%", width: "100%", filter:"blur(15px)"}}></img>
+        <img src={logo} style={{position: "relative", top: "50%", width: "100%", filter:"blur(15px)"}}></img>
 
-        <div class="container">
+        <div class="container contentbody" style={{border:"0", backgroundColor: "rgba(255,255,255,0.2)", width:"25%"}}>
           <div class="btn btn-outline-primary">
             <button
               onClick={() => this.props.changeState(appStates.FrontPage)}
@@ -62,7 +62,7 @@ class Login extends Component {
           <h1>{this.state.aSession}</h1>
 
           <div class="container">
-            <h1 class="card-title" style={{ color: "#f36d21"}}>Login</h1>
+            <h1 class="card-title" style={{ color: "#f36d21", marginBottom: "30px"}}>Login</h1>
           </div>
 
           <div class="input-group mb-3 d-flex justify-content-center">
