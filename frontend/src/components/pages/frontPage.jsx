@@ -4,13 +4,21 @@ import '../css/frontpage.css';
 import logo from '../images/Logo_1.png';
 
 const appStates = {
-    FrontPage: 1,
-    Login: 2,
-    Register: 3,
-    Dashboard: 4,
-  };
+  FrontPage: 1,
+  Login: 2,
+  Register: 3,
+  Dashboard: 4,
+};
 
 class FrontPage extends React.Component {
+  skipLogin = () => {
+    if (localStorage.getItem("userID") != null) {
+      console.log("User is logged in")
+      console.log("User is logged in")
+      this.props.changeState(appStates.Dashboard)
+
+    }
+  }
     render() { 
         return (
           <>
@@ -37,5 +45,5 @@ class FrontPage extends React.Component {
         );
     }
 }
- 
+
 export default FrontPage;

@@ -37,6 +37,7 @@ const list = [{ id: 0, color: "hue-rotate(95deg) saturate(200%)"},
 
 const list_legs = ["h_left","h_right","q_left","q_right"];
 var curr_time = "";
+var date = "";
 var max_time = "";
 var sensor1Data = "";
 var sensor2Data = "";
@@ -48,7 +49,7 @@ var sensor4Data = "";
 // Iterate 4 times each loop (second) to generate 4 different random numbers
 // Follow through on the loops and display each leg's colour
 
-class BusinessMenu extends Component {
+class HeatMap extends Component {
 
   constructor(props) {
     super(props);
@@ -63,6 +64,7 @@ class BusinessMenu extends Component {
     this.interval = setInterval(() => { this.randomNumber() }, 500);
 
     this.props.api.get(`/exercise/${this.props.exerciseID}`).then(res=>{
+      console.log(res.data);
       this.setState({exerciseData: res.data})
       console.log(this.state.exerciseData)
       this.setState({currentID: this.state.exerciseData[0].recordingDataID});
@@ -70,6 +72,7 @@ class BusinessMenu extends Component {
       console.log(this.state.currentID);
       console.log(this.state.maxID);
       this.timerUpdate();
+      this.cutDate();
     })
   }
 
@@ -178,6 +181,7 @@ class BusinessMenu extends Component {
             }
 
             curr_time = this.fixTime(time);
+            // curr_time = time;
             // console.log(temp_find);
 
               const {id, color} = temp_find;
@@ -205,6 +209,10 @@ class BusinessMenu extends Component {
       max_time = (this.state.exerciseData[(this.state.exerciseData.length - 1)].time).toString();
       max_time = this.fixTime(max_time);
     }
+  }
+
+  cutDate(){
+    date = (this.state.exerciseData[0].time).substring(0,(this.state.exerciseData[0].time).indexOf("T"));
   }
 
   changeSelected = (tab) => {
@@ -240,10 +248,14 @@ class BusinessMenu extends Component {
             <button class='heatmapbutton'  onClick={this.unPausePlay}>Play</button>
           </div>
           <div className="textBox">
-            <h4 style={{ flex: "8" , textAlign: "right"}} > {curr_time} </h4>
-            <h4 style={{ flex:"1" , textAlign: "center" }}> / </h4>
-            <h4 style={{ flex: "8" , textAlign: "left"}}> {max_time} </h4>
+            <h5 style={{ flex: "8" , textAlign: "right"}} > {curr_time} </h5>
+            <h5 style={{ flex:"1" , textAlign: "center" }}> / </h5>
+            <h5 style={{ flex: "8" , textAlign: "left"}}> {max_time} </h5>
           </div>
+          <div className="textBox">
+            <h5 style={{ flex:"1" , textAlign: "center" }} > {date} </h5>
+          </div>
+
         </div>
       </>
     );
@@ -251,4 +263,4 @@ class BusinessMenu extends Component {
 }
 
 // style={{ position: "absolute", bottom:"20%", right:"10%"}}
-export default BusinessMenu;
+export default HeatMap;
