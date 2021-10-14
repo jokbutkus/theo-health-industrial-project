@@ -1,10 +1,12 @@
 import React, { Component } from "react";
-import "../../index.css";
-import "bootstrap/dist/css/bootstrap.css";
 import profilepic from '../images/profilepic.jpg';
 import UserInformation from "./userInformation";
-import '../css/main.css';
 import ExerciseList from "./exerciseList";
+
+import "bootstrap/dist/css/bootstrap.css";
+import '../css/main.css';
+import "../../index.css";
+import '../css/clientList.css';
 
 const appStates = {
   NotSelected : 1,
@@ -67,86 +69,44 @@ class ClientList extends Component {
       this.setState({ show: !this.state.show });
     };
 
-    // this.setState({selectedUser: this.props.userID})
-
     const state = this.state.appState;
     switch (state) {
       case appStates.NotSelected:   
       return (
         <div>
-          <form>
-            <h2>Clients</h2>
-            {this.state.User.map((user, index) => (
-              <div key={index} class="row">
-                <img
+          <h2>Clients</h2>
+          <table class="table table-hover list">
+            <thead>
+              <tr>
+                <th class="client-img-cell" scope="col"></th>
+                <th scope="col">Username</th>
+                <th scope="col">Name</th>
+                <th scope="col">DOB</th>
+                <th scope="col">Gender</th>
+                <th scope="col">Weight</th>
+                <th scope="col">Height</th>
+              </tr>
+            </thead>
+            <tbody>
+              {this.state.User.map((user, index) => (
+                <tr
+                  key={index}
                   onClick={() => {
                     this.setState({ selectedUser: user.athlete.id });
                     this.changeState(2);
                   }}
-                  style={{ maxHeight: 100, maxWidth: 100 }}
-                  src={profilepic}
-                  alt=""
-                  class="row m-2"
-                />
-                <div>
-                  <input
-                    class="col m-2"
-                    type="text"
-                    readOnly
-                    value={user.athlete.username}
-                  />
-                </div>
-                <div>
-                  <input
-                    class="col m-2"
-                    type="text"
-                    value={user.athlete.name}
-                  />
-                </div>
-                <div
-                  style={{ display: this.state.show ? "block" : "none" }}
-                  class="row m-2"
                 >
-                  <div class="infocontainer">
-                    <input
-                      class="forminfo"
-                      type="text"
-                      value={user.athlete.dateOfBirth}
-                    />
-                    <input
-                      class="forminfo"
-                      type="text"
-                      value={user.athlete.gender}
-                    />
-                    <input
-                      class="forminfo"
-                      type="text"
-                      value={user.athlete.weight}
-                    />
-                    <input
-                      class="forminfo"
-                      type="text"
-                      value={user.athlete.height}
-                    />
-                  </div>
-                </div>
-                <div class="col-3">
-                  <button
-                    name={"User"}
-                    id={user.id}
-                    class="btn btn-secondary bg-primary m-1"
-                    type="button"
-                    onClick={toggleShow}
-                  >
-                    Display Client's Information
-                  </button>
-                </div>
-                <br />
-                <br />
-                <br />
-              </div>
-            ))}
-          </form>
+                  <td class="client-img-cell"><img class="client-img" src={profilepic}/></td>
+                  <td>{user.athlete.username}</td>
+                  <td>{user.athlete.name}</td>
+                  <td>{user.athlete.dateOfBirth}</td>
+                  <td>{user.athlete.gender}</td>
+                  <td>{user.athlete.weight}</td>
+                  <td>{user.athlete.height}</td>
+                </tr>
+                ))}
+            </tbody>
+          </table>
         </div>
       );
       case appStates.UserSelected:

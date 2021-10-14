@@ -37,33 +37,28 @@ class ExerciseList extends Component {
       case appStates2.NotSelected:
         return (
           <div class="container">
-            {this.state.exerciseList.map((exercise, index) => (
-              <div key={index}
-                
-              >
-                  <button
+            <table class="table table-hover list">
+              <thead>
+                <tr>
+                  <th scope="col">Date</th>
+                  <th scope="col">Recording ID</th>
+                </tr>
+              </thead>
+              <tbody>
+              {this.state.exerciseList.map((exercise, index) => (
+                <tr
+                  key={index}
                   onClick={() => {
-                    
                     this.setState({ selectedExercise: exercise.recordingID });
                     this.changeState2(2);
                   }}
-                  >button</button>
-                <div key={index}>
-                  <input
-                    class="col m-2"
-                    type="text"
-                    value={exercise.date}
-                    readOnly
-                  />
-                  <input
-                    class="col m-2"
-                    type="text"
-                    value={exercise.recordingID}
-                    readOnly
-                  />
-                </div>
-              </div>
-            ))}
+                >
+                  <td>{exercise.date}</td>
+                  <td>{exercise.recordingID}</td>
+                </tr>
+              ))}
+              </tbody>
+            </table>
           </div>
         );
       case appStates2.Selected:
