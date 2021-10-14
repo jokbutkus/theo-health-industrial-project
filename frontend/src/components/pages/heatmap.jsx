@@ -63,6 +63,7 @@ class HeatMap extends Component {
     this.interval = setInterval(() => { this.randomNumber() }, 500);
 
     this.props.api.get(`/exercise/${this.props.exerciseID}`).then(res=>{
+      console.log(res.data);
       this.setState({exerciseData: res.data})
       console.log(this.state.exerciseData)
       this.setState({currentID: this.state.exerciseData[0].recordingDataID});
