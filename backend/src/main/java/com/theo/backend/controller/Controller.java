@@ -116,6 +116,13 @@ public class Controller {
 
     @PostMapping("/signup")
     public LoginResponse signup(@RequestBody final SignupRequest signupRequest) {
+        if (isInvalidSignup(signupRequest)) {
+            return null;
+        }
+
+        if (userRepository.existsByUsername(signupRequest.getUsername())) {
+            return null;
+        }
         if (!userRoleRepository.existsByName(TRAINER_ROLE)) {
             saveUserRoleWithName(TRAINER_ROLE);
         }
@@ -135,6 +142,10 @@ public class Controller {
 
     @PostMapping("/athlete-signup")
     public LoginResponse athleteSignup(@RequestBody final AthleteSignupRequest signupRequest) {
+        if (isInvalidSignup(signupRequest)) {
+            return null;
+        }
+
         if (!userRoleRepository.existsByName(ATHLETE_ROLE)) {
             saveUserRoleWithName(ATHLETE_ROLE);
         }
@@ -167,6 +178,11 @@ public class Controller {
         }
 
         return null;
+    }
+
+    private boolean isInvalidSignup(final SignupRequest signupRequest) {
+        return signupRequest.getUsername().isEmpty() || signupRequest.getPassword().isEmpty()
+                || userRepository.existsByUsername(signupRequest.getUsername());
     }
 
     private void saveUserRoleWithName(final String userRoleName) {
