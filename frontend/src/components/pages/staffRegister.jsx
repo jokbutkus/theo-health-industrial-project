@@ -120,88 +120,27 @@ class StaffRegister extends Component {
   render() {
     return (
       <div class="">
-        <h3>add a person</h3>
         <div class="container">
-        <div class="row">
-            <input
-              placeholder="Username"
-              class="form-control"
-              name="username"
-              type="text"
-              onChange={this.handleChange}
-            />
-          </div>
-          <div class="row">
-            <input
-              placeholder="Password"
-              class="form-control"
-              name="password"
-              type="text"
-              onChange={this.handleChange}
-            />
-          </div>
-          <div class="row">
-            <input
-              placeholder="Name"
-              class="form-control"
-              name="name"
-              type="text"
-              onChange={this.handleChange}
-            />
-          </div>
-          <div class="row">
-            <input
-              placeholder="DOB"
-              class="form-control"
-              name="dateOfBirth"
-              type="date"
-              onChange={this.handleChange}
-            />
-          </div>
-          <div class="row">
-            <input
-              placeholder="Gender"
-              class="form-control"
-              name="gender"
-              type="text"
-              onChange={this.handleChange}
-            />
-          </div>
-          <div class="row">
-            <input
-              placeholder="Height"
-              class="form-control"
-              name="height"
-              type="text"
-              onChange={this.handleChange}
-            />
-          </div>
-          <div class="row">
-            <input
-              placeholder="Weight"
-              class="form-control"
-              name="weight"
-              type="text"
-              onChange={this.handleChange}
-            />
-          </div>
+          <h3>Add a Client</h3>
+            <input placeholder="Username" class="form-control" name="username" type="text" onChange={this.handleChange}/>
+            <input placeholder="Password" class="form-control" name="password" type="text" onChange={this.handleChange}/>          
+            <input placeholder="Name" class="form-control" name="name" type="text" onChange={this.handleChange}/>
+            <input placeholder="DOB" class="form-control" name="dateOfBirth" type="date" onChange={this.handleChange}/>
+            <input placeholder="Gender" class="form-control" name="gender" type="text" onChange={this.handleChange}/>
+            <input placeholder="Height" class="form-control" name="height" type="text" onChange={this.handleChange}/>
+            <input placeholder="Weight" class="form-control" name="weight" type="text" onChange={this.handleChange}/>
 
-          <div class="row">
-            <button
-              class="btn btn-secondary"
-              type="button"
-              onClick={this.handleSubmit}
-            >
+            <button class="button" type="button" onClick={this.handleSubmit}>
               Submit
             </button>
-          </div>
+
         </div>
-        <br />
-        <br />
+
+
         {/* Display Person */}
-        <h2>This is just for testing and wouldn't be on the page</h2>
+        {/* ?? Please look into this part of the code if its important. */}
         <form>
-          <h2>Clients</h2>
+          {/* <h2>Clients</h2> */} 
           {this.state.User.map((user, index) => (
             <div key={index} class="row">
               <img
