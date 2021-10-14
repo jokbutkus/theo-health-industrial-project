@@ -1,3 +1,4 @@
+
 .sidebar {
     float: left;
     width: 30%;
@@ -106,4 +107,30 @@
 
 .forminfo {
     margin: 2px 0;
+}
+
+.profiletext {
+    color: #fc9154;
+    width: auto;
+    text-align: center;
+    height: 32px;
+    margin-bottom: 4.7px;
+    margin-right: 15px;
+    
+    /* outline: none; */
+}
+
+.profile-container {
+    width: auto;
+    height: auto;
+}
+
+input.test {
+    width: 150px;
+    height: auto;
+    border-radius: 25px;
+    border: 2px solid rgb(39, 39, 39);
+    color: rgb(39, 39, 39);
+    padding: 0 0 0 5px;
+    margin-bottom: 8px;
 }

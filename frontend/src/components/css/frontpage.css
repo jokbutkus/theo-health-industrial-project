@@ -1,15 +1,46 @@
 .button {
-    border: none;
-    color: #f36d21;
-    padding: 15px 32px;
-    font-weight: bold;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    cursor: pointer;
-    border: solid rgba(0, 0, 0, .15);
-    border-width: 1px 1px;
-  }
+  margin: 5px 3px;
+  width: 10vw;
+  height: 5vh;
+  background-color: #fc9154;
+  border-radius: 25px;
+  border-color: #fc9154;
+  color: white;
+  font-size: 2.5vh;
+}
 
+.box {
+  width: 100vw;
+  height: 99.1vh;
+  background-color: #3992b6;
+  clip-path: polygon(100% 100%, 100% 0, 0 100%);
+}
+
+.content-body {
+  top: 35%;
+  left: 35%;
+  padding: 5% 5%;
+  border: 0px solid black;
+  border-radius: 25px;
+  height: 30vh;
+  width: 25vw;
+  /* top: 15%; */
+  background: white;
+  position: absolute;
+  box-shadow:
+       inset 0 -3em 3em rgba(0,0,0,0.1),
+             0 0  0 2px rgb(179, 179, 179),
+             0.3em 0.3em 1em rgba(0,0,0,0.3);
+}
+
+.theologo {
+  position:fixed;
+  margin: 15px 15px;
+	top:0; 
+	left:0
+}
+
+.theologoimage {
+  width: 25%;
+  height: auto;
+}

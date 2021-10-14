@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import "../css/login.css";
+import logo from '../images/Logo_1.png';
 
 const appStates = {
   FrontPage: 1,
@@ -56,30 +58,40 @@ class Register extends Component {
 
   render() {
     return (
-      <div>
-        <div>
-          <button onClick={() => this.props.changeState(appStates.FrontPage)} type="submit" class="btn btn-primary">
+      <>
+      
+      <div class="box"></div>
+      <div class="theologo">
+            <img class='theologoimage' alt='theologo' src={logo} />
+      </div>
+      <div class="login-body">
+
+          <div class='d-flex justify-content-center'>
+            <h1 class="card-title" style={{ fontSize: "5vh", color: "#000000", marginBottom: "15px" }}>Sign Up</h1>
+          </div>
+
+          <div class="input-group mb-2 d-flex justify-content-center">
+              <input class="login" type="text" id="name" placeholder="name" value={this.state.name} onChange={this.setName} />
+            </div>
+            <div class="input-group mb-2 d-flex justify-content-center">
+              <input class="login" type="text" id="username" placeholder="username" value={this.state.username} onChange={this.setUsername} />
+            </div>
+            <div class="input-group mb-2 d-flex justify-content-center">
+              <input class="login" type="text" id="password" placeholder="password" value={this.state.password} onChange={this.setPassword} />
+            </div>
+            <div class="d-flex justify-content-center">     
+              <button class="button" onClick={this.signUpMethod} type="button" >
+                Register
+              </button>
+            </div>
+
+        <div class="d-flex justify-content-center">
+          <button class="button-2" onClick={() => this.props.changeState(appStates.FrontPage)}>
             Back
           </button>
         </div>
-
-        <div class="card col-12 col-lg-4 login-card mt-2 hv-center">
-          <form>
-          <div class="card-header">
-              <input type="text" id="name" placeholder="name" value={this.state.name} onChange={this.setName} />
-            </div>
-            <div class="card-header">
-              <input type="text" id="username" placeholder="username" value={this.state.username} onChange={this.setUsername} />
-            </div>
-            <div class="card-header">
-              <input type="text" id="password" placeholder="password" value={this.state.password} onChange={this.setPassword} />
-            </div>
-            <button onClick={this.signUpMethod} type="button" class="btn btn-primary">
-              Register
-            </button>
-          </form>
-        </div>
       </div>
+      </>
     );
   }
 }
