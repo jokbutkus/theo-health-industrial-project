@@ -120,10 +120,7 @@ public class Controller {
         if (isInvalidSignup(signupRequest)) {
             return null;
         }
-
-        if (userRepository.existsByUsername(signupRequest.getUsername())) {
-            return null;
-        }
+        
         if (!userRoleRepository.existsByName(TRAINER_ROLE)) {
             saveUserRoleWithName(TRAINER_ROLE);
         }
