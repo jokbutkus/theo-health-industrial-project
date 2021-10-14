@@ -66,20 +66,20 @@ class Login extends Component {
           </div>
 
           <div class="input-group mb-3 d-flex justify-content-center">
-            <div class="input-group-prepend">
+            {/* <div class="input-group-prepend">
               <span class="input-group-text" style={{ borderColor: "ButtonShadow", marginRight: "5px" }}>Uesrname: </span>
-            </div>
+            </div> */}
               <input style={{ borderRadius: "25px", padding: "3.5px 15px"}} type="text" id="username" placeholder="username" value={this.state.username} onChange={this.setUsername}/>
           </div>
 
           <div class="input-group mb-3 d-flex justify-content-center">
-            <div class="input-group-prepend">
+            {/* <div class="input-group-prepend">
               <span class="input-group-text" style={{ borderColor: "ButtonShadow", marginRight: "9px" }}>Password: </span>
-            </div>
+            </div> */}
               <input style={{ borderRadius: "25px", padding: "3.5px 15px"}} type="text" id="password" placeholder="password" value={this.state.password} onChange={this.setPassword}/>
           </div>
 
-          <div>          
+          <div class="d-flex justify-content-center">          
             <button
               class="btn btn-primary"
               style={{
@@ -88,8 +88,6 @@ class Login extends Component {
                 borderRadius: "50px",
                 margin: "10px 0 0 0",
                 position: "relative",
-                float: "right",
-                left: "-50%",
                 textAlign: "left"
               }}
 

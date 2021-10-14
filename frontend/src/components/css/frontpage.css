@@ -1,5 +1,4 @@
 .button {
-    border: none;
     color: #f36d21;
     padding: 15px 32px;
     font-weight: bold;
@@ -11,5 +10,19 @@
     cursor: pointer;
     border: solid rgba(0, 0, 0, .15);
     border-width: 1px 1px;
+    border-radius: 100px;
   }
 
+.bodyContent{
+  border: none;
+  background-color: transparent;
+  width: 420px;
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+}
+
+.image{
+  position: relative;
+  top: 50%;
+  width: 100%;
+  filter: blur(15px);
+}
