@@ -10,7 +10,7 @@ const appStates = {
   UserSelected : 2
 };
 
-class Page2 extends Component {
+class ClientList extends Component {
 
   state = {
     appState: appStates.NotSelected,
@@ -127,4 +127,4 @@ class Page2 extends Component {
   }
 }
 
-export default Page2;
+export default ClientList;
