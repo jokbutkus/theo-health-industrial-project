@@ -3,7 +3,7 @@ import "../../index.css";
 import "bootstrap/dist/css/bootstrap.css";
 import profilepic from '../images/profilepic.jpg';
 
-class Page3 extends Component {
+class StaffRegister extends Component {
 
   constructor() {
     super();
@@ -243,5 +243,5 @@ class Page3 extends Component {
   }
 }
 
-export default Page3;
+export default StaffRegister;
 

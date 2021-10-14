@@ -2,9 +2,9 @@ import React, { Component } from "react";
 import "../../index.css";
 import NonAthleteMenu from "../nonAthleteMenu";
 import ExampleImage from "../assets/ExampleImageAnatomy.PNG";
-import Page1 from "./page1";
-import Page2 from "./page2";
-import Page3 from "./page3";
+import HeatMap from "./heatmap";
+import ClientList from "./clientList";
+import StaffRegister from "./staffRegister";
 import UserProfile from "./userProfile";
 import ExerciseList from "./exerciseList";
 import "../css/main.css";
@@ -46,7 +46,7 @@ class Dashboard extends Component {
               {/* <h1>Heatmap</h1> */}
               {/* <br /> */}
               <div className="contentbody">
-                <Page1
+                <HeatMap
                   api={this.props.api}
                   exerciseID={1} />
               </div>
@@ -59,7 +59,7 @@ class Dashboard extends Component {
               {/* <h1>My Clients</h1> */}
               <br />
               <div className="contentbody">
-                <Page2
+                <ClientList
                   api={this.props.api}
                 />
               </div>
@@ -72,7 +72,7 @@ class Dashboard extends Component {
               {/* <h1>Add Clients</h1> */}
               <br />
               <div className="contentbody">
-                <Page3
+                <StaffRegister
                   api={this.props.api}
                 />
               </div>

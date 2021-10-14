@@ -48,7 +48,7 @@ var sensor4Data = "";
 // Iterate 4 times each loop (second) to generate 4 different random numbers
 // Follow through on the loops and display each leg's colour
 
-class BusinessMenu extends Component {
+class HeatMap extends Component {
 
   constructor(props) {
     super(props);
@@ -251,4 +251,4 @@ class BusinessMenu extends Component {
 }
 
 // style={{ position: "absolute", bottom:"20%", right:"10%"}}
-export default BusinessMenu;
+export default HeatMap;
