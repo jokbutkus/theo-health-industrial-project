@@ -28,8 +28,8 @@ class Dashboard extends Component {
           <div class="sidebar">
             <div className="info">
               <img class="profilepic" alt="profilepicture" style={{ margin: "10px 0px" }} src={profilepic} />
-              <h1 style={{ color: "white" }}>Name</h1>
-              <h4 style={{ color: "white" }}>Job role</h4>
+              <h1 style={{ color: "white" }}>{localStorage.getItem("name")}</h1>
+              <h4 style={{ color: "white" }}>{localStorage.getItem("role")}</h4>
               <NonAthleteMenu
                 selection={this.props.selection}
                 changeSelection={this.props.changeSelection}
@@ -46,9 +46,9 @@ class Dashboard extends Component {
               {/* <h1>Heatmap</h1> */}
               {/* <br /> */}
               <div className="contentbody">
-                <HeatMap
+                <UserProfile
                   api={this.props.api}
-                  exerciseID={1} />
+                />
               </div>
             </div>
           ) : (
@@ -61,8 +61,8 @@ class Dashboard extends Component {
               <div className="contentbody">
                 <ClientList
                   api={this.props.api}
-                  userID={2}
-                  exerciseID={1}
+                  // userID={2}
+                  // exerciseID={1}
                 />
               </div>
             </div>
@@ -102,7 +102,7 @@ class Dashboard extends Component {
               <div className="contentbody">
                 <ExerciseList
                   api={this.props.api}
-                  userID={2}
+                  userID={localStorage.getItem("userID")}
                 />
               </div>
             </div>

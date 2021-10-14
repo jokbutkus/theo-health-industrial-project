@@ -48,26 +48,7 @@ const appStates = {
 
 class App extends Component {
 
-    constructor() {
-        super();
-        this.loginMethod();
-    }
-    loginMethod = async() => {
-        let res = await api.post('/login', { username: 'username2', password: 'password' })
-        console.log(res)
-        localStorage.setItem("userID", res.data.userID)
-    }
-
-    signupMethod = async() => {
-        let res = await api.post('/signup', { name: 'name', username: 'username1', password: 'password' })
-        console.log(res)
-    }
-
-    profilePage = async() => {
-        let res = await api.get('/user/{id}')
-    }
-
-    state = {
+  state = {
         appState: appStates.FrontPage,
         selection: 0,
     };

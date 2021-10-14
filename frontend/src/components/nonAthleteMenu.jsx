@@ -82,6 +82,12 @@ class NonAthleteMenu extends Component {
                 Exercise List
               </a>
             }
+            <a class ="text-center nav-link sidebutton" onClick={()=>{
+              localStorage.clear()
+              window.location.reload()
+            }}>
+              Logout
+            </a>
           </ul>
         </div>
         <div class="card-body">

@@ -50,6 +50,7 @@ class ClientList extends Component {
     componentDidMount(){
       console.log("did mount", localStorage.getItem("userID"))
       this.props.api.get(`/client-list/${localStorage.getItem("userID")}`).then(res=>{
+        console.log(res.data)
         this.setState({User: res.data})
       })
     }
@@ -61,10 +62,6 @@ class ClientList extends Component {
   };
 
   render() {
-    this.state.User.map((user, index) => {
-      console.log('render')
-      console.log(user.athlete)
-    });
     let toggleShow = () => {
       console.log(this.state.show);
       this.setState({ show: !this.state.show });
@@ -95,7 +92,7 @@ class ClientList extends Component {
                   <input
                     class="col m-2"
                     type="text"
-                    readonly
+                    readOnly
                     value={user.athlete.username}
                   />
                 </div>
