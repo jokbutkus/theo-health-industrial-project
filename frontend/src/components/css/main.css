@@ -134,3 +134,7 @@ input.test {
     padding: 0 0 0 5px;
     margin-bottom: 8px;
 }
+
+.table.list th, .table.list td {
+    vertical-align: middle;
+}
