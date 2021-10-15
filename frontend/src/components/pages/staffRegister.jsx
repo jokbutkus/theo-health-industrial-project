@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "../../index.css";
 import "bootstrap/dist/css/bootstrap.css";
+import "../css/staffRegister.css";
 import profilepic from '../images/profilepic.jpg';
 
 class StaffRegister extends Component {
@@ -120,15 +121,15 @@ class StaffRegister extends Component {
   render() {
     return (
       <div class="">
-        <div class="container">
+        <div class="container add-client-container">
           <h3>Add a Client</h3>
-            <input placeholder="Username" class="form-control" name="username" type="text" onChange={this.handleChange}/>
-            <input placeholder="Password" class="form-control" name="password" type="password" onChange={this.handleChange}/>          
-            <input placeholder="Name" class="form-control" name="name" type="text" onChange={this.handleChange}/>
-            <input placeholder="DOB" class="form-control" name="dateOfBirth" type="date" onChange={this.handleChange}/>
-            <input placeholder="Gender" class="form-control" name="gender" type="text" onChange={this.handleChange}/>
-            <input placeholder="Height" class="form-control" name="height" type="text" onChange={this.handleChange}/>
-            <input placeholder="Weight" class="form-control" name="weight" type="text" onChange={this.handleChange}/>
+            <input placeholder="Username" class="form-control centered" name="username" type="text" onChange={this.handleChange}/>
+            <input placeholder="Password" class="form-control centered" name="password" type="password" onChange={this.handleChange}/>          
+            <input placeholder="Name" class="form-control centered" name="name" type="text" onChange={this.handleChange}/>
+            <input placeholder="DOB" class="form-control centered" name="dateOfBirth" type="date" onChange={this.handleChange}/>
+            <input placeholder="Gender" class="form-control centered" name="gender" type="text" onChange={this.handleChange}/>
+            <input placeholder="Height" class="form-control centered" name="height" type="text" onChange={this.handleChange}/>
+            <input placeholder="Weight" class="form-control centered" name="weight" type="text" onChange={this.handleChange}/>
 
             <button class="button" type="button" onClick={this.handleSubmit}>
               Submit
