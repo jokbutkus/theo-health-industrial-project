@@ -52,7 +52,7 @@ class Login extends Component {
       <div class="theologo">
             <img class='theologoimage' alt='theologo' src={logo} />
       </div>
-      <div class="login-body">
+      <div class="login-body centered-xy">
       <div class="container">
         
         <div class='d-flex justify-content-center'>

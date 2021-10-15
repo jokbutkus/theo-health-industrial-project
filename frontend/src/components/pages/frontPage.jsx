@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "bootstrap/dist/css/bootstrap.css";
+import "../css/main.css";
 import '../css/frontpage.css';
 import logo from '../images/Logo_1.png';
 
@@ -26,7 +27,7 @@ class FrontPage extends React.Component {
             <img class='theologoimage' alt='theologo' src={logo} />
           </div>
           <div class="box"></div>
-          <div class="content-body">
+          <div class="content-body centered-xy">
             <div class=" d-flex justify-content-center">
               <button class="button" onClick={() => this.props.changeState(appStates.Login)}>
                 Login
