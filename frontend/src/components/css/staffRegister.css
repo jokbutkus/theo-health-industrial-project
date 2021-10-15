@@ -1,0 +1,8 @@
+.add-client-container {
+  text-align: center;
+}
+
+.form-control.centered {
+  margin-left: auto;
+  margin-right: auto;
+}
