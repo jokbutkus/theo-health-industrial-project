@@ -1,14 +1,10 @@
 .login-body {
-    top: 32%;
-    left: 33%;
     padding: 2% 5% 0 5%;
     border: 0px solid black;
     border-radius: 25px;
     height: auto;
     width: auto;
-    /* top: 15%; */
     background: white;
-    position: absolute;
     box-shadow:
          inset 0 -3em 3em rgba(0,0,0,0.1),
                0 0  0 2px rgb(179, 179, 179),
