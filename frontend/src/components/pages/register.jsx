@@ -64,7 +64,7 @@ class Register extends Component {
       <div class="theologo">
             <img class='theologoimage' alt='theologo' src={logo} />
       </div>
-      <div class="login-body">
+      <div class="login-body centered-xy">
 
           <div class='d-flex justify-content-center'>
             <h1 class="card-title" style={{ fontSize: "5vh", color: "#000000", marginBottom: "15px" }}>Sign Up</h1>
