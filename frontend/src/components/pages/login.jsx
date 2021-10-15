@@ -64,7 +64,7 @@ class Login extends Component {
         </div>
 
         <div class="input-group mb-2 d-flex justify-content-center">
-            <input class="login" type="text" id="password" placeholder="password" value={this.state.password} onChange={this.setPassword}/>
+            <input class="login" type="password" id="password" placeholder="password" value={this.state.password} onChange={this.setPassword}/>
         </div>
 
         <div class="d-flex justify-content-center">     

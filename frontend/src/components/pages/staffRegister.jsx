@@ -123,7 +123,7 @@ class StaffRegister extends Component {
         <div class="container">
           <h3>Add a Client</h3>
             <input placeholder="Username" class="form-control" name="username" type="text" onChange={this.handleChange}/>
-            <input placeholder="Password" class="form-control" name="password" type="text" onChange={this.handleChange}/>          
+            <input placeholder="Password" class="form-control" name="password" type="password" onChange={this.handleChange}/>          
             <input placeholder="Name" class="form-control" name="name" type="text" onChange={this.handleChange}/>
             <input placeholder="DOB" class="form-control" name="dateOfBirth" type="date" onChange={this.handleChange}/>
             <input placeholder="Gender" class="form-control" name="gender" type="text" onChange={this.handleChange}/>
