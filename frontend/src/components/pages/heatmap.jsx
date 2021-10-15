@@ -225,8 +225,8 @@ class HeatMap extends Component {
         <div className='image-container'>
           <div className="frontLegs">
             <img class='image_BG legs' alt='frontBG' src={front_BG} />
-            <img class='front q_left legs' id="q_left" alt='Left_Q' src={R_Q} />
-            <img class='front q_right legs' id="q_right" alt='Right_Q' src={L_Q} />
+            <img class='front q_left legs' id="q_right" alt='Right_Q' src={R_Q} />
+            <img class='front q_right legs' id="q_left" alt='Left_Q' src={L_Q} />
           </div>
           <div className="backLegs">
             <img class='legs image_BG' alt='back_BG' src={back_BG} />
@@ -237,8 +237,8 @@ class HeatMap extends Component {
         </div>
         <div className="timeControl">
           <div className="dataContainer">
-            <div className="q_r dataText" > Left Quadricep <br></br> {sensor3Data}</div>
-            <div className="q_l dataText"> Right Quadricep <br></br> {sensor4Data} </div>
+            <div className="q_r dataText" > Right Quadricep <br></br> {sensor4Data}</div>
+            <div className="q_l dataText"> Left Quadricep <br></br> {sensor3Data} </div>
             <div className="h_r dataText"> Left Hamstring <br></br> {sensor1Data} </div>
             <div className="h_l dataText"> Right Hamstring <br></br> {sensor2Data} </div>
 
