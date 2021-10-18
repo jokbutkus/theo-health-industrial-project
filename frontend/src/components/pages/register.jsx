@@ -28,23 +28,25 @@ class Register extends Component {
 
   setName(event) {
     this.setState({ name: event.target.value })
-    console.log(this.state.name)
+    // console.log(this.state.name)
   }
   
   setUsername(event) {
     this.setState({ username: event.target.value })
-    console.log(this.state.username)
+    // console.log(this.state.username)
   } 
 
   setPassword(event) {
     this.setState({ password: event.target.value })
-    console.log(this.state.password)
+    // console.log(this.state.password)
   }
 
+  // Post method to backend to signup a physiotherapist
   signUpMethod = async() => {
     let res = await this.props.api.post('/signup', { name: this.state.name, username: this.state.username, password: this.state.password })
     
-    console.log(res.data)
+    // Logging information for testing purposes and allowing to track if the data is processes correctly before posting to the backend
+    // console.log(res.data)
     if (res.data.userID!=null) {
       localStorage.setItem("userID", res.data.userID);
       localStorage.setItem("role", res.data.role);

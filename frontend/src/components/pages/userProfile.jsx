@@ -13,12 +13,16 @@ class UserProfile extends Component {
   state = {
      userData: [] 
   }
+
+  // Load account information from database on bootup and store the data localy on the page within the state of the session
   componentDidMount(){
     this.props.api.get(`/user/${localStorage.getItem("userID")}`).then(res=>{
       this.setState({userData: res.data})
-      console.log(this.state.userData)
+      // console.log(this.state.userData)
     })
   }
+
+  // Access data of the profile by using this.state as input from the Mount function.
   render() {
     return (
       <>

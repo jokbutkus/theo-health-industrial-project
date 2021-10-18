@@ -35,6 +35,7 @@ const list = [{ id: 0, color: "hue-rotate(95deg) saturate(200%)"},
               { id: 18, color: "hue-rotate(5deg) saturate(200%)"},
               { id: 19, color: "hue-rotate(0deg) saturate(200%)"}];
 
+// Temporary data used to demonstrate data on the page which doesn't belong in the "state"
 const list_legs = ["h_left","h_right","q_left","q_right"];
 var curr_time = "";
 var date = "";
@@ -44,7 +45,7 @@ var sensor2Data = "";
 var sensor3Data = "";
 var sensor4Data = "";
 
-
+// Run Logic
 // Store all individual muscle images to a list on load - to not repeat a search.
 // Iterate 4 times each loop (second) to generate 4 different random numbers
 // Follow through on the loops and display each leg's colour
@@ -59,23 +60,26 @@ class HeatMap extends Component {
   }
 
   //to use the heatmap data just access it like this "this.state.exerciseData"
+  // A lot of commands which are ran on page loading
+  // These are to do with loading the data file we read information to update the heatmap and commands which set the limits for minimum and maximum used for tracking the progress of the video
   componentDidMount(){
     this.findLegs();
-    this.interval = setInterval(() => { this.randomNumber() }, 500);
+    this.interval = setInterval(() => { this.updateLegMuscle() }, 500);
 
     this.props.api.get(`/exercise/${this.props.exerciseID}`).then(res=>{
-      console.log(res.data);
+      // console.log(res.data);
       this.setState({exerciseData: res.data})
-      console.log(this.state.exerciseData)
+      // console.log(this.state.exerciseData)
       this.setState({currentID: this.state.exerciseData[0].recordingDataID});
       this.setState({maxID: this.state.exerciseData[(this.state.exerciseData.length - 1)].recordingDataID});
-      console.log(this.state.currentID);
-      console.log(this.state.maxID);
+      // console.log(this.state.currentID);
+      // console.log(this.state.maxID);
       this.timerUpdate();
       this.cutDate();
     })
   }
 
+  // Commands which are ran when the page is exited so the data doesn't get overwritten
   componentWillUnmount() {
     this.setState({leg_element: []});
     this.setState({exerciseData: []});
@@ -87,7 +91,7 @@ class HeatMap extends Component {
   pausePlay(){
     // this.timerUpdate();
     this.setState({pause: false});
-    console.log(this.state.leg_element);
+    // console.log(this.state.leg_element);
     // this.findLegs();
   }
 
@@ -95,6 +99,8 @@ class HeatMap extends Component {
     this.setState({pause: true});
   }
 
+  // This function is called on boot to store the components on the page that are required
+  // This funciton is not specifically need to be ran in final designs but it helps make the website more robust.
   findLegs(){
     var temp_array = [];
     for (var i = 0; i < 4; i++){
@@ -110,8 +116,9 @@ class HeatMap extends Component {
     this.setState({ leg_element: temp_array });
   }
 
-  // Random Number generator for demo
-  randomNumber() {
+  // Function that actually updates the screen every "setInverval"
+  // This is where the key funcitons of the heatmap are done
+  updateLegMuscle() {
     if (this.state.pause){
       if(this.state.leg_element.length === 4){
         if(this.state.currentID !== this.state.maxID){
@@ -120,7 +127,7 @@ class HeatMap extends Component {
           //Once compared just apply colour to leg
 
           const rand = this.state.exerciseData.find(  ({ recordingDataID }) => recordingDataID === this.state.currentID);
-          console.log(rand);
+          // console.log(rand);
 
           for (var i = 0; i < 4; i++){
             var elem = document.getElementById(list_legs[i]);
@@ -180,6 +187,7 @@ class HeatMap extends Component {
               sensor4Data = sensor4.toString()+ " - " + (Math.round((sensor4 / 1024)*100).toString()) + "%" ;
             }
 
+            //Time update on screen
             curr_time = this.fixTime(time);
             // curr_time = time;
             // console.log(temp_find);
@@ -189,7 +197,7 @@ class HeatMap extends Component {
 
           }
           this.setState(prevState => { return {currentID: prevState.currentID + 1} })
-          console.log(this.state.currentID);
+          // console.log(this.state.currentID);
 
         // console.log(this.state.random);
         // this.changeColour();
@@ -200,10 +208,12 @@ class HeatMap extends Component {
 
   }
 
+  // Splits the Date and Time and keeps just the time
   fixTime(wrong_time){
     return wrong_time = wrong_time.split("T").pop();
   }
 
+  // Max time display addition which checks for the last ID int he array send by backend
   timerUpdate(){
     if (this.state.exerciseData != null){
       max_time = (this.state.exerciseData[(this.state.exerciseData.length - 1)].time).toString();
@@ -211,6 +221,7 @@ class HeatMap extends Component {
     }
   }
 
+  // Used to Seperate Data and Time just to store the data of the session
   cutDate(){
     date = (this.state.exerciseData[0].time).substring(0,(this.state.exerciseData[0].time).indexOf("T"));
   }
@@ -219,6 +230,7 @@ class HeatMap extends Component {
     this.props.changeSelection(tab);
   };
 
+  // HTML component of the page used for data visualisation with the heatmap design.
   render() {
     return (
       <>
@@ -261,6 +273,4 @@ class HeatMap extends Component {
     );
   }
 }
-
-// style={{ position: "absolute", bottom:"20%", right:"10%"}}
 export default HeatMap;

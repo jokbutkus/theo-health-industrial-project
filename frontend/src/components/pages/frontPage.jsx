@@ -14,8 +14,8 @@ const appStates = {
 class FrontPage extends React.Component {
   skipLogin = () => {
     if (localStorage.getItem("userID") != null) {
-      console.log("User is logged in")
-      console.log("User is logged in")
+      // console.log("User is logged in")
+      // console.log("User is logged in")
       this.props.changeState(appStates.Dashboard)
 
     }

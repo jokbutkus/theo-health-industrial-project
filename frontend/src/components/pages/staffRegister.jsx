@@ -33,7 +33,7 @@ class StaffRegister extends Component {
       weight: this.state.weight,
     })
 
-    console.log(res.data)
+    // console.log(res.data)
     // if (res.data.userID != null) {
     // this.props.changeState(appStates.Dashboard);
     // }
@@ -81,6 +81,7 @@ class StaffRegister extends Component {
     allowSubmit: true
   };
 
+  // function with which we push data to the database to signup an athlete into it
   handleSubmit = async () =>{
     let res = await this.props.api.post('/athlete-signup', {
       staffId: localStorage.getItem("userID"),
@@ -99,7 +100,7 @@ class StaffRegister extends Component {
 
   handleChange = (event) => {
     // this.setState.User({Username : Event.target.value});
-    console.log(event.target.name);
+    // console.log(event.target.name);
     this.setState({ [event.target.name]: event.target.value });
   };
 
@@ -118,6 +119,8 @@ class StaffRegister extends Component {
   };
 
 
+  // HTML component of the page with state handling for inputs to allow for eaasier access within the class component
+  // Use this formating for addtions of any extra data to be added
   render() {
     return (
       <div class="">
@@ -136,48 +139,6 @@ class StaffRegister extends Component {
             </button>
 
         </div>
-
-
-        {/* Display Person */}
-        {/* ?? Please look into this part of the code if its important. */}
-        <form>
-          {/* <h2>Clients</h2> */} 
-          {this.state.User.map((user, index) => (
-            <div key={index} class="row">
-              <img
-                style={{ maxHeight: 100, maxWidth: 100 }}
-                src={profilepic}
-                alt=""
-                class="row m-2"
-              />
-              <div>
-                <input class="col m-2" type="text" value={user.Username} />
-              </div>
-              <div class="row m-2">
-                <input class="" type="text" value={user.DOB} />
-                <input class="" type="text" value={user.Gender} />
-                <input class="" type="text" value={user.Height} />
-                <input class="" type="text" value={user.Weight} />
-              </div>
-              <div class="col-3">
-                <button
-                  name={"User"}
-                  id={user.id}
-                  class="btn btn-secondary bg-danger m-2"
-                  type="button"
-                  onClick={this.handleDelete}
-                >
-                  Delete
-                </button>
-              </div>
-              <br />
-              <br />
-              <br />
-            </div>
-          ))}
-        </form>
-
-        <br />
       </div>
     );
   }
