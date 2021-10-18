@@ -19,18 +19,21 @@ class ExerciseList extends Component {
     appState2: appStates2.NotSelected,
     selectedExercise: "",
   };
+  
+  //Load data from the database that includes a list of all the exercise sessions that an athlete has assigned to their ID
   componentDidMount() {
     this.props.api.get(`/exercise-list/${this.props.userID}`).then((res) => {
       this.setState({ exerciseList: res.data });
-      console.log(this.state.exerciseList);
+      // console.log(this.state.exerciseList);
       this.state.exerciseList.map((exercise, index) => {
-        console.log("Iteration");
+        // console.log("Iteration");
       });
     });
   }
 
   changeState2 = (s) => this.setState({ appState2: s });
 
+  // Displaying all of the sessions that an athlete has from the data provided by the backend
   render() {
     const state = this.state.appState2;
     switch (state) {

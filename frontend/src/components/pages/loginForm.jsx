@@ -15,10 +15,10 @@ class LoginForm extends React.Component {
     handleSubmitClick = (e) => {
         //e.preventDefault();
         this.setState({userID : document.getElementById('userID').value});
-        console.log(this.state.userID);
+        // console.log(this.state.userID);
 
         if(this.userID !== this.state.correctID) {
-             console.log("Wrong ID");
+            //  console.log("Wrong ID");
         }
         else {
             this.props.changeState(appStates.Dashboard)

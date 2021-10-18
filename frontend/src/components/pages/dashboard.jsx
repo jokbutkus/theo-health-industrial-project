@@ -18,6 +18,7 @@ class Dashboard extends Component {
     this.props.changeSelection(tab);
   };
 
+  // Dashboard is key jsx file used for routing the user of the app between pages while carrying navigation panel
   render() {
     return (
 

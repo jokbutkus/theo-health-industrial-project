@@ -24,8 +24,10 @@ class Login extends Component {
   }
 
   loginMethod = async() => {
+    // Post request to backend to send user's login information to be validated
     let res = await this.props.api.post('/login', { username: this.state.username, password: this.state.password })
 
+    // Storing the user data localy to be used within the web app after response from the backend
     if (res.data.userID!=null) {
       localStorage.setItem("userID", res.data.userID);
       localStorage.setItem("role", res.data.role);

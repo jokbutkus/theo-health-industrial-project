@@ -18,6 +18,7 @@ class ClientList extends Component {
   state = {
     appState: appStates.NotSelected,
     User: [],
+    // Temporary data from previous developments that was used as a template
     // User: [
     //   {
     //     id: 1,
@@ -50,9 +51,9 @@ class ClientList extends Component {
 
     //to use the heatmap data just access it like this "this.state.exerciseData"
     componentDidMount(){
-      console.log("did mount", localStorage.getItem("userID"))
+      // console.log("did mount", localStorage.getItem("userID"))
       this.props.api.get(`/client-list/${localStorage.getItem("userID")}`).then(res=>{
-        console.log(res.data)
+        // console.log(res.data)
         this.setState({User: res.data})
       })
     }
@@ -65,7 +66,7 @@ class ClientList extends Component {
 
   render() {
     let toggleShow = () => {
-      console.log(this.state.show);
+      // console.log(this.state.show);
       this.setState({ show: !this.state.show });
     };
 
